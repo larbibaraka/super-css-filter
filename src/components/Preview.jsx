@@ -8,6 +8,7 @@ class Preview extends Component {
        `;
     return (
       <PREVIEW>
+        <h1 className="text-center text-primary">preview</h1>
 
 
       </PREVIEW>

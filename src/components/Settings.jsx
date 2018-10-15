@@ -8,7 +8,7 @@ class Settings extends Component {
        `;
     return (
       <SETTINGS>
-
+        <h1 className="text-center text-danger">settings</h1>
 
       </SETTINGS>
     )

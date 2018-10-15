@@ -11,6 +11,7 @@ class Filters extends Component {
        `;
     return (
       <FILTERS>
+       <h1 className="text-center text-info">filters</h1>
 
 
       </FILTERS>
