@@ -8,11 +8,21 @@ import Preview from '../components/Preview';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-     	<Filters/>
-      <Settings/>
-      <CssCode/>
-      <Preview/>
+      <div className="App wrapper">
+     	  <div className="row">
+            <div className="col-lg-2">
+               <Filters/>
+            </div>
+            <div className="col-lg-6">
+               <Preview/>
+            </div>
+            <div className="col-lg-4">
+              <CssCode/>
+            </div>
+        </div> 
+        <Settings/>
+   
+     
       </div>
     );
   }
