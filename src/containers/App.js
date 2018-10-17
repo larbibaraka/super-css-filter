@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div className="App wrapper">
      	  <div className="row">
-            <div className="col-lg-2">
-               <Filters/>
+            <div className="col-lg-2" style={{'overflow':'auto' , 'maxHeight': '700px'}}>
+            <Settings/>
             </div>
             <div className="col-lg-6">
                <Preview/>
@@ -20,7 +20,12 @@ class App extends Component {
               <CssCode/>
             </div>
         </div> 
-        <Settings/>
+        <div className="row">
+          <div className="col-lg-10 ">
+              <Filters/>
+          </div>
+        </div>
+        
    
      
       </div>
