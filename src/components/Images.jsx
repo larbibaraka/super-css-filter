@@ -10,12 +10,7 @@ const CARD = styled.div`
 const Images = ({imageUrl}) =>{
  
     return (
-      <CARD className="card" > 
-         <img className="card-img-top" src={imageUrl} alt="sss"/>
-         <div className="card-body">
-            <h5 className="card-title">Filter</h5>
-         </div>
-      </CARD>
+      <h1>{imageUrl}</h1>
     )
   
 }

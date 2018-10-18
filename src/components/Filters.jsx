@@ -13,59 +13,8 @@ class Filters extends Component {
           border-raduis :0px;
        `;
     return (
-      
-      <FILTERS className="card" >
-          <div className="card-title">
-            <h2 className="text-center text-primary">Filters</h2> 
-          </div>
-          <div className="card-body">
-          <div className="row">
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>
-            <div className="col">
-              <Images imageUrl = {atx}/>
-            </div>       
-          </div>
-
-        
-          
-
-         
-         
-          </div>
-         
-      </FILTERS>
+     <h1>filters</h1>
+     
     )
   }
 }
