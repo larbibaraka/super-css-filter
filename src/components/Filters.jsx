@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 import SolidBackground from './SolidBackground';
+import RangeItem  from './RangeItem';
  
 class Filters extends Component {
 
@@ -88,128 +89,103 @@ class Filters extends Component {
               ClearAll</p>
           </div>
           <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Blur :</label>
-              <input 
-                className="slider has-output is-fullwidth"  
-                type="range"
-                onInput={this.onChange}
-                name ="blur"
-                min = "0"
-                max ="10"
-                defaultValue={this.state.blur}
-              />
-              <output>{this.state.blur}px</output>
-            </div>
+           <RangeItem
+              value={this.state.blur}
+              name = "blur"
+              min  = "0"
+              max  = "10"
+              onChange = {this.onChange}
+              unit = "px"
+              label = "Blur"
+            />
           </div>
           <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Hue Rotate :</label>
-              <input 
-                className="slider has-output is-fullwidth" 
-                type="range" 
-                onChange={this.onChange}
-                name ="hueRotate"
-                min ="0"
-                max ="360"
-                defaultValue={this.state.hueRotate}
-                />
-              <output>{this.state.hueRotate}dg</output>
-            </div>
+            <RangeItem
+              value={this.state.hueRotate}
+              name = "hueRotate"
+              min  = "0"
+              max  = "360"
+              onChange = {this.onChange}
+              unit = "dg"
+              label = "Hue Rotate"
+            />
+
+
           </div>
           <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Invert :</label>
-              <input 
-                className="slider has-output is-fullwidth" 
-                type="range" 
-                onChange={this.onChange}
-                name ="invert"
-                min ="0"
-                max ="100"
-                defaultValue={this.state.invert}
-               />
-              <output>{this.state.invert}%</output>
-            </div>
-          </div>
-          <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Grayscale :</label>
-              <input 
-                className="slider has-output is-fullwidth"  
-                type="range" 
-                onChange={this.onChange}
-                name ="grayScale"
-                min ="0"
-                max ="100"
-                
-                defaultValue={this.state.grayScale}
-              />
-              <output className="">{this.state.grayScale}%</output>
-            </div>
-          </div>
-          <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Sepia :</label>
-              <input 
-                className="slider has-output is-fullwidth" 
-                type="range" 
-                onChange={this.onChange}
-                name ="sepia"
-                min ="0"
-                max ="100"
-                defaultValue={this.state.sepia}
-               />
-              <output>{this.state.sepia}%</output>
-            </div>
+             <RangeItem
+              value={this.state.invert}
+              name = "invert"
+              min  = "0"
+              max  = "100"
+              onChange = {this.onChange}
+              unit = "%"
+              label = "Invert"
+            />
           </div>
 
           <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Saturation :</label>
-              <input 
-                className="slider has-output is-fullwidth"  
-                type="range" 
-                onChange={this.onChange}
-                name ="saturation"
-                min ="0"
-                max ="200"
-                
-                defaultValue={this.state.saturation}
-              />
-              <output>{this.state.saturation}%</output>
-            </div>
+            <RangeItem
+              value={this.state.grayScale}
+              name = "grayScale"
+              min  = "0"
+              max  = "100"
+              onChange = {this.onChange}
+              unit = "%"
+              label = "Grayscale"
+            />
           </div>
           <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Brightness :</label>
-              <input 
-                className="slider has-output is-fullwidth"  
-                type="range" 
-                onChange={this.onChange}
-                name ="brightness"
-                min ="0"
-                max ="200"
-                
-                defaultValue={this.state.brightness}
-              />
-              <output>{this.state.brightness}%</output>
-            </div>
+          
+
+            <RangeItem
+              value={this.state.sepia}
+              name = "sepia"
+              min  = "0"
+              max  = "100"
+              onChange = {this.onChange}
+              unit = "%"
+              label = "Sepia"
+            />
+          </div>
+
+          <div className="panel-block"> 
+         
+            <RangeItem
+              value={this.state.saturation}
+              name = "saturation"
+              min  = "0"
+              max  = "200"
+              onChange = {this.onChange}
+              unit = "%"
+              label = "Saturation"
+            />
+
           </div>
           <div className="panel-block"> 
-            <div className="div-wrapper">
-              <label className="label">Contrast :</label>
-              <input 
-                className="slider has-output is-fullwidth"  
-                type="range" 
-                onChange={this.onChange}
-                name ="contrast"
-                min ="0"
-                max ="200"
-               defaultValue={this.state.contrast}
-              />
-              <output>{this.state.contrast}%</output>
-            </div>
+           
+
+            <RangeItem
+              value={this.state.brightness}
+              name = "brightness"
+              min  = "0"
+              max  = "200"
+              onChange = {this.onChange}
+              unit = "%"
+              label = "Brightness"
+            />
+
+          </div>
+          <div className="panel-block"> 
+            <RangeItem
+              value={this.state.contrast}
+              name = "contrast"
+              min  = "0"
+              max  = "200"
+              onChange = {this.onChange}
+              unit = "%"
+              label = "Contrast"
+            />
           </div>
           <div className="panel-block"> 
             <div className="div-wrapper">
