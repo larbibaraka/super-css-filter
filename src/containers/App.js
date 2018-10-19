@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className=" is-fluid">
           <div className="columns">
-              <div className="column is-3">
+              <div className="column is-4">
                 <Filters/>
               </div>
            </div>
