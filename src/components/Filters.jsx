@@ -9,29 +9,66 @@ class Filters extends Component {
     constructor(props){
       super(props);
       this.state = {
-        blur : 0,
-        hueRotate : 0,
-        invert : 0,
-        grayScale : 0,
-        sepia : 0,
-        saturation : 0,
-        brightness : 0 ,
-        contrast : 0,
-        min : 0,
-        max : 100
-
-      }
+          blur : 0,
+          hueRotate : 0,
+          invert : 0,
+          grayScale : 0,
+          sepia : 0,
+          saturation : 0,
+          brightness : 0 ,
+          contrast : 0,
+          none : true,
+          solidBackground : false,
+          linearGradient  : false,
+          radialGradient  : false,
+       }
     }
 
     onChange = (e)=>{
-        console.log('--->' , e.target.name)
+        console.log('--->' , e.target.name) 
+
+        switch (e.target.name) {
+          case 'none':
+            this.setState({none:true, solidBackground : false , linearGradient : false, radialGradient : false});
+            break;
+          case 'solidBackground' :
+            this.setState({none:false, solidBackground : true , linearGradient : false, radialGradient : false});
+            break;
+          case 'linearGradient':
+            this.setState({none:false, solidBackground : false , linearGradient : true, radialGradient : false});
+            break;
+          case 'radialGradient' :
+            this.setState({none:false, solidBackground : false , linearGradient : false, radialGradient : true});
+            break;  
+          default:
+            break;
+        }
 
         this.setState(
           {
-            [e.target.name] : e.target.value
+            [e.target.name] : e.target.value,
           }
-        )
+        )   
     }
+
+    onClick = () =>{
+      this.setState({
+          blur : 0,
+          hueRotate : 0,
+          invert : 0,
+          grayScale : 0,
+          sepia : 0,
+          saturation : 0,
+          brightness : 0 ,
+          contrast : 0,
+          none : true,
+          solidBackground : false,
+          linearGradient  : false,
+          radialGradient  : false,
+      })
+    }
+
+
      
 
   render() {
@@ -43,7 +80,13 @@ class Filters extends Component {
       <FILTERS>
         <nav className="panel">
           <div  className="panel-heading">
-              <h1 className="title is-2">Settings</h1>
+              <h1 className="title is-4 is-centered">Settings</h1>
+           
+              <p 
+              className="button is-danger is-centered"
+              onClick={this.onClick}
+              >
+              ClearAll</p>
           </div>
           <div className="panel-block"> 
             <div className="div-wrapper">
@@ -53,8 +96,8 @@ class Filters extends Component {
                 type="range"
                 onInput={this.onChange}
                 name ="blur"
-                min ={this.state.min}
-                max ={this.state.max}
+                min = "0"
+                max ="10"
                 defaultValue={this.state.blur}
               />
               <output>{this.state.blur}px</output>
@@ -173,19 +216,46 @@ class Filters extends Component {
             <div className="div-wrapper">
               <label className="label">OVERLAY :</label>
               <div className="field">
-                <input className="is-checkradio" type="radio" name="exampleRadioInline1" />
+                <input 
+                  className="is-" 
+                  type="radio" 
+                  name="none" 
+                  checked={this.state.none} 
+                  onChange={this.onChange}
+                  />
                 <label >None</label>
               </div>
               <div className="field">
-                <input className="is-checkradio" type="radio" name="exampleRadioInline2"/>
+                <input 
+                  className="is-" 
+                  type="radio" 
+                  name="solidBackground" 
+                  checked={this.state.solidBackground}
+                  onChange={this.onChange}
+                 
+                />
                 <label >Solid Background</label>
               </div>
               <div className="field">
-                <input className="is-checkradio" type="radio" name="exampleRadioInline3"/>
+                <input 
+                  className="is-" 
+                  type="radio" 
+                  name="linearGradient" 
+                  checked={this.state.linearGradient}
+                  onChange={this.onChange}
+                   
+                />
                 <label >Linear Gradient</label>
               </div>
               <div className="field">
-                <input className="is-checkradio" type="radio" name="exampleRadioInline4"/>
+                <input 
+                  className="is-" 
+                  type="radio" 
+                  name="radialGradient" 
+                  checked={this.state.radialGradient}
+                  onChange={this.onChange}
+                
+                />
                 <label >Radial Gradient</label>
               </div>
             </div>
