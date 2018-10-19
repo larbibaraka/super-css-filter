@@ -1,6 +1,11 @@
 html{
   height: 100%;
+  overflow: hidden;
 }
-.App{
-  margin-top: 20px; 
+
+body{
+  overflow: none;
 }
+
+
+ 

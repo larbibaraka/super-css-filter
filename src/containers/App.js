@@ -8,7 +8,14 @@ import Preview from '../components/Preview';
 class App extends Component {
   render() {
     return (
-      <div>app</div>
+      <div className=" is-fluid">
+          <div className="columns">
+              <div className="column is-3">
+                <Filters/>
+              </div>
+           </div>
+
+      </div>
     );
   }
 }

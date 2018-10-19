@@ -8,7 +8,7 @@ class Preview extends Component {
        `;
     return (
       <PREVIEW>
-       
+       <h1>preview</h1>
       </PREVIEW>
     )
   }
