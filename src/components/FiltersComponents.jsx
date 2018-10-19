@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SolidBackground from './SolidBackground';
 import RangeItem  from './RangeItem';
+import RadioItem  from './RadioItem';
 class FiltersComponents extends Component {
   constructor(props){
     super(props);
@@ -173,48 +174,33 @@ class FiltersComponents extends Component {
           <div className="panel-block"> 
             <div className="div-wrapper">
               <label className="label">OVERLAY :</label>
-              <div className="field">
-                <input 
-                  className="is-" 
-                  type="radio" 
-                  name="none" 
-                  checked={this.state.none} 
-                  onChange={this.onChange}
-                  />
-                <label >None</label>
-              </div>
-              <div className="field">
-                <input 
-                  className="is-" 
-                  type="radio" 
-                  name="solidBackground" 
-                  checked={this.state.solidBackground}
-                  onChange={this.onChange}
-                 
+              
+               <RadioItem
+                name = "none"
+                value={this.state.none}
+                onChange={this.onChange}
+                label="None"
                 />
-                <label >Solid Background</label>
-              </div>
-              <div className="field">
-                <input 
-                  className="is-" 
-                  type="radio" 
-                  name="linearGradient" 
-                  checked={this.state.linearGradient}
-                  onChange={this.onChange}
-                   
-                />
-                <label >Linear Gradient</label>
-              </div>
-              <div className="field">
-                <input 
-                  className="is-" 
-                  type="radio" 
-                  name="radialGradient" 
-                  checked={this.state.radialGradient}
-                  onChange={this.onChange}
-                />
-                <label>Radial Gradient</label>
-              </div>
+              
+              <RadioItem
+                name = "solidBackground"
+                value={this.state.solidBackground}
+                onChange={this.onChange}
+                label="Solid Background"
+              />
+              <RadioItem
+                name = "linearGradient"
+                value={this.state.linearGradient}
+                onChange={this.onChange}
+                label="Linear Gradient"
+              />
+              <RadioItem
+                name = "radialGradient"
+                value={this.state.radialGradient}
+                onChange={this.onChange}
+                label="Radial Gradient"
+              />
+              
               <div className="div-wrapper">
                 <SolidBackground/>
               </div>
