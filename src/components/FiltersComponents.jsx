@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SolidBackground from './SolidBackground';
+import PanelOption from './PanelOption';
 import RangeItem  from './RangeItem';
 import RadioItem  from './RadioItem';
 class FiltersComponents extends Component {
@@ -18,7 +18,9 @@ class FiltersComponents extends Component {
         solidBackground : false,
         linearGradient  : false,
         radialGradient  : false,
+        typeChosen : 'none' 
      }
+
   }
 
   onChange = (e)=>{
@@ -26,16 +28,16 @@ class FiltersComponents extends Component {
 
       switch (e.target.name) {
         case 'none':
-          this.setState({none:true, solidBackground : false , linearGradient : false, radialGradient : false});
+          this.setState({none:true, solidBackground : false , linearGradient : false, radialGradient : false , typeChosen : 'none'});
           break;
         case 'solidBackground' :
-          this.setState({none:false, solidBackground : true , linearGradient : false, radialGradient : false});
+          this.setState({none:false, solidBackground : true , linearGradient : false, radialGradient : false , typeChosen : 'solidBackground'});
           break;
         case 'linearGradient':
-          this.setState({none:false, solidBackground : false , linearGradient : true, radialGradient : false});
+          this.setState({none:false, solidBackground : false , linearGradient : true, radialGradient : false , typeChosen : 'linearGradient'});
           break;
         case 'radialGradient' :
-          this.setState({none:false, solidBackground : false , linearGradient : false, radialGradient : true});
+          this.setState({none:false, solidBackground : false , linearGradient : false, radialGradient : true , typeChosen : 'radialGradient'});
           break;  
         default:
           break;
@@ -64,11 +66,8 @@ class FiltersComponents extends Component {
         radialGradient  : false,
     })
   }
-
- 
- 
   render() {
-    return (
+   return (
       <nav className="panel">
           <div  className="panel-heading">
               <h1 className="title is-4 is-centered">Settings</h1>
@@ -113,7 +112,6 @@ class FiltersComponents extends Component {
               label = "Invert"
             />
           </div>
-
           <div className="panel-block"> 
             <RangeItem
               value={this.state.grayScale}
@@ -136,7 +134,6 @@ class FiltersComponents extends Component {
               label = "Sepia"
             />
           </div>
-
           <div className="panel-block"> 
             <RangeItem
               value={this.state.saturation}
@@ -174,14 +171,12 @@ class FiltersComponents extends Component {
           <div className="panel-block"> 
             <div className="div-wrapper">
               <label className="label">OVERLAY :</label>
-              
-               <RadioItem
+              <RadioItem
                 name = "none"
                 value={this.state.none}
                 onChange={this.onChange}
                 label="None"
                 />
-              
               <RadioItem
                 name = "solidBackground"
                 value={this.state.solidBackground}
@@ -200,15 +195,14 @@ class FiltersComponents extends Component {
                 onChange={this.onChange}
                 label="Radial Gradient"
               />
-              
               <div className="div-wrapper">
-                <SolidBackground/>
+                <PanelOption type= {this.state.typeChosen}/>
               </div>
+              
             </div>
           </div>
        </nav>
     )
   }
 }
-
 export default FiltersComponents;

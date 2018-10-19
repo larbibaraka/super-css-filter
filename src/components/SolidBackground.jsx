@@ -7,7 +7,7 @@ import RangeItem  from './RangeItem';
     super(props);
     this.state = {
       initialColor : '#00d1b2',
-      opacity : 0
+      opacity : 100
     }
   }
 
@@ -58,9 +58,7 @@ import RangeItem  from './RangeItem';
                 Mix Blend Mode :  
                 <SelectItem modes={modes}/>
                </label>
-          </div>
-
-          
+          </div>    
 
           <RangeItem
             value={this.state.opacity}
