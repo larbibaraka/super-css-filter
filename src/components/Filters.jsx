@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import atx from './atx.jpg';
-import Images  from './Images';
+import SolidBackground from './SolidBackground';
  
 class Filters extends Component {
 
@@ -254,9 +253,11 @@ class Filters extends Component {
                   name="radialGradient" 
                   checked={this.state.radialGradient}
                   onChange={this.onChange}
-                
                 />
                 <label >Radial Gradient</label>
+              </div>
+              <div className="div-wrapper">
+                <SolidBackground/>
               </div>
             </div>
           </div>

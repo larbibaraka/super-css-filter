@@ -2,11 +2,33 @@ output{
       
     position: unset!important;
     width: 3.4rem!important;
-    background: #00D1B2!important;
+    /*background: #00D1B2!important;*/
+    background: #0c0c0c!important;
     font-weight: bold!important;
 }
  
 
 .div-wrapper{
   width: 100%;
+}
+
+.field-wrapper .div-wrapper{
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+    /* border: none; */
+    border: 3px solid transparent;
+ 
+    width: 60px;
+    height: 27px;
+    margin-left: 10px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
 }
