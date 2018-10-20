@@ -32,3 +32,39 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
 	border: none;
 }
+
+
+input[type="number"]{
+  width: 69px;
+  height: 25px;
+  padding: 5px;
+  background: rgb(74, 85, 87);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 2rem;
+  position: relative;
+  border: none;
+  top: -3px;
+}
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  opacity: 1;
+}
+
+.div-wrapper .options{
+  display: inline-block!important;
+  width: 9rem;
+}
+
+.div-wrapper select {
+  width: 14rem;
+  margin-left: 21px;
+  position: relative;
+  top: -6px;
+}

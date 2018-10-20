@@ -1,12 +1,12 @@
 import React from 'react'
 
-function SelectItem({modes}) {
+function SelectItem({modes, onChange}) {
  
   return (
     <div className="select">
-        <select>
+        <select onChange={onChange}>
         {modes.map((item)=>
-          <option key={item.id}>{item.mode}</option>
+          <option key={item.id} value={item.name} >{item.mode}</option>
         )}      
         </select>
     </div>

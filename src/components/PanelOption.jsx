@@ -1,5 +1,8 @@
 import React from 'react'
 import SolidBackground from './SolidBackground';
+import LinearGradient from './LinearGradient';
+import RadialGradient from './RadialGradient';
+
 function PanelOption({type}) {
   switch (type) {
     case 'none':
@@ -7,9 +10,9 @@ function PanelOption({type}) {
     case 'solidBackground' :
     return(<SolidBackground/>) 
     case 'linearGradient' :
-    return(<SolidBackground/>) 
+    return(<LinearGradient/>) 
     case 'radialGradient' :
-    return(<SolidBackground/>) 
+    return(<RadialGradient/>) 
     default:
     return true;   
   }
