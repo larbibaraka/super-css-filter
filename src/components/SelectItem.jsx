@@ -4,7 +4,7 @@ function SelectItem({modes, onChange, currentValue}) {
  
   return (
     <div className="select">
-        <select onChange={onChange} value="Normal">
+        <select onChange={onChange} value={currentValue}>
         {modes.map((item)=>
           <option key={item.id} value={item.name}  >{item.mode}</option>
         )}      
