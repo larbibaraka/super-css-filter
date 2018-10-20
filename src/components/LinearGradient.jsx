@@ -7,12 +7,13 @@ import Incrementer from './Incrementer';
   constructor(props){
     super(props);
     this.state = {
-      initialColor : '#00d1b2',
+      initialColor1 : '#00d1b2',
+      initialColor2 : '#c4c4c4',
       opacity : 100,
       IncrementColor1 : 0,
       IncrementColor2 : 0,
-      mode : '',
-      gradientdirection : ''
+      currentValuemode : 'Normal',
+      currentValuegradientdirection : 'tobottom'
 
     }
   }
@@ -26,18 +27,21 @@ import Incrementer from './Incrementer';
   }
 
   onChangeSelectModes = (e) =>{
-    console.log(this.state)
+     console.log(e.target.value)
     this.setState({
-        mode : e.target.value
+      currentValuemode : e.target.value
     })
+    console.log(this.state)
   }
 
 
   onChangeSelectgradientDirection = (e) =>{
-    console.log(this.state)
+    
+    console.log(e.target.value)
     this.setState({
-      gradientdirection : e.target.value
+      currentValuegradientdirection : e.target.value
     })
+    console.log(this.state)
   }
 
 
@@ -78,17 +82,16 @@ import Incrementer from './Incrementer';
     ]
     return (
       <div className="field-wrapper">
-       
           <div className="div-wrapper">
                 <label className="label  options">
                 Color 1 :  
                 </label>
                 <input
                  type="color"
-                 defaultValue={this.state.initialColor}  
-                 />
-                
-               
+                 name = "initialColor1"
+                 defaultValue={this.state.initialColor1}  
+                 onChange = {this.onChange}
+                 />              
                 <Incrementer
                   name = "IncrementColor1"
                   min = "0"
@@ -104,7 +107,9 @@ import Incrementer from './Incrementer';
                 </label> 
                 <input
                  type="color"
-                 defaultValue={this.state.initialColor}  
+                 name = "initialColor2"
+                 defaultValue={this.state.initialColor2}  
+                 onChange = {this.onChange}
                  />
                 <Incrementer
                   name = "IncrementColor2"
@@ -119,17 +124,16 @@ import Incrementer from './Incrementer';
                 <label className="label  options">
                 Gradient Direction
                   </label> 
-                <SelectItem modes={gradientsDirection} onChange = {this.onChangeSelectgradientDirection}/>
+                <SelectItem modes={gradientsDirection} onChange = {this.onChangeSelectgradientDirection} currentValue={this.state.currentValuegradientdirection}/>
               
           </div>  
           <div className="div-wrapper">
                 <label className="label options">
                 Mix Blend Mode
                 </label> 
-                <SelectItem modes={modes} onChange= {this.onChangeSelectModes}  currentValue="Normal"/>
+                <SelectItem modes={modes} onChange= {this.onChangeSelectModes}  currentValue={this.state.currentValuemode}/>
           </div> 
              
-
           <RangeItem
             value={this.state.opacity}
             name = "opacity"
@@ -139,8 +143,6 @@ import Incrementer from './Incrementer';
             unit = "%"
             label = "Opacity"
           />
-
-
         </div>
      
     )
