@@ -18,7 +18,7 @@ class FiltersComponents extends Component {
         solidBackground : false,
         linearGradient  : false,
         radialGradient  : false,
-        typeChosen : 'linearGradient' 
+        typeChosen : 'radialGradient' 
      }
 
   }

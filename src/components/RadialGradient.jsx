@@ -1,65 +1,171 @@
 import React, { Component } from 'react';
-import SelectItem from './SelectItem';   
+import SelectItem from './SelectItem';
 import RangeItem  from './RangeItem';
+import Incrementer from './Incrementer';
+
  class RadialGradient extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      initialColor : '#00d1b2',
-      opacity : 100
+      initialColor1 : '#00d1b2',
+      initialColor2 : '#c4c4c4',
+      opacity : 100,
+      IncrementColor1 : 0,
+      IncrementColor2 : 0,
+      currentValuemode : 'Normal',
+      currentValuegradientdirection : 'tobottom',
+      currentValuegradientPosition : 'centercenter'
+
     }
   }
 
   onChange = (e) =>{
+    console.log(e.target.name)
+    console.log(e.target.value)
     this.setState({
-      opacity :  e.target.value
+      [e.target.name] :  e.target.value,
     })
   }
+
+  onChangeSelectModes = (e) =>{
+     console.log(e.target.value)
+    this.setState({
+      currentValuemode : e.target.value
+    })
+    console.log(this.state)
+  }
+
+
+  onChangeSelectgradientDirection = (e) =>{
+        console.log(e.target.value)
+    this.setState({
+      currentValuegradientdirection : e.target.value
+    })
+    console.log(this.state)
+  }
+
+      onChangegradientPosition = (e) =>{
+        console.log(e.target.value)
+    this.setState({
+      currentValuegradientPosition : e.target.value
+    })
+    console.log(this.state)
+    }
+
+
 
 
   render() {
     const modes = [
-      {id: 1 , mode :'Overlay'},
-      {id: 2 , mode :'Normal'},
-      {id: 3 , mode :'Multiply'},
-      {id: 4 , mode :'Screen'},
-      {id: 5 , mode :'Darken'},
-      {id: 6 , mode :'Lighten'},
-      {id: 7 , mode :'Color-dodge'},
-      {id: 8 , mode :'Color-burn'},
-      {id: 9 , mode :'Hard-light'},
-      {id: 10 , mode :'Soft-light'},
-      {id: 11 , mode :'Difference'},
-      {id: 12 , mode :'Exclusion'},
-      {id: 13 , mode :'Hue'},
-      {id: 14 , mode :'Saturation'},
-      {id: 15 , mode :'Color'},
-      {id: 16 , mode :'Luminosity'},
-      {id: 17 , mode :'Initial'},
-      {id: 18 , mode :'Inherit'},
-      {id: 19 , mode :'Unset'}
+      {id: 1 , mode :'Overlay' , name:'Overlay'},
+      {id: 2 , mode :'Normal' , name:'Normal'},
+      {id: 3 , mode :'Multiply' , name:'Multiply'},
+      {id: 4 , mode :'Screen' , name:'Screen'},
+      {id: 5 , mode :'Darken' , name:'Darken'},
+      {id: 6 , mode :'Lighten' , name:'Lighten'},
+      {id: 7 , mode :'Color-dodge' , name:'Color-dodge'},
+      {id: 8 , mode :'Color-burn' , name:'Color-burn'},
+      {id: 9 , mode :'Hard-light' , name:'Hard-light'},
+      {id: 10 , mode :'Soft-light' , name:'Soft-light'},
+      {id: 11 , mode :'Difference' , name:'Difference'},
+      {id: 12 , mode :'Exclusion' , name:'Exclusion'},
+      {id: 13 , mode :'Hue' , name:'Hue'},
+      {id: 14 , mode :'Saturation' , name:'Saturation'},
+      {id: 15 , mode :'Color' , name:'Color'},
+      {id: 16 , mode :'Luminosity' , name:'Luminosity'},
+      {id: 17 , mode :'Initial' , name:'Initial'},
+      {id: 18 , mode :'Inherit' , name:'Inherit'},
+      {id: 19 , mode :'Unset' , name:'Unset'}
+    ];
+
+    const gradientsDirection = [
+      {id: 1 , mode :'To Top' , name : 'totop'},
+      {id: 2 , mode :'To Top Left' , name : 'totopleft'},
+      {id: 3 , mode :'To Top Right' , name : 'totopright'},
+      {id: 4 , mode :'To Left' , name : 'toleft'},
+      {id: 5 , mode :'To Right' , name : 'toright'},
+      {id: 6 , mode :'To Bottom' , name : 'tobottom'},
+      {id: 7 , mode :'To Bottom Left' , name : 'tobottomleft'},
+      {id: 8 , mode :'To Bottom Right' , name : 'tobottomright'}
+  
     ]
+   
+    const gradientPosition = [
+      {id: 1 , mode :'Left Top' , name : 'lefttop'},
+      {id: 2 , mode :'Center Top' , name : 'centertop'},
+      {id: 3 , mode :'Right Top' , name : 'righttop'},
+      {id: 4 , mode :'Left Center' , name : 'leftcenter'},
+      {id: 5 , mode :'Center Center' , name : 'centercenter'},
+      {id: 6 , mode :'Right Center' , name : 'rightcenter'},
+      {id: 7 , mode :'Left Bottom' , name : 'leftbottom'},
+      {id: 8 , mode :'Center Bottom' , name : 'centerbottom'},
+      {id: 9 , mode :'Right Bottom' , name : 'rightbottom'},
+    ]
+   
+   
     return (
       <div className="field-wrapper">
-       
           <div className="div-wrapper">
-                <label className="label">
-                Background color :  
+                <label className="label  options">
+                Color 1 :  
+                </label>
                 <input
                  type="color"
-                 defaultValue={this.state.initialColor}  
+                 name = "initialColor1"
+                 defaultValue={this.state.initialColor1}  
+                 onChange = {this.onChange}
+                 />              
+                <Incrementer
+                  name = "IncrementColor1"
+                  min = "0"
+                  max = "1000"
+                  value= {this.state.IncrementColor1}
+                  onChange = {this.onChange}
+                />
+          </div>
+
+          <div className="div-wrapper">
+                <label className="label  options">
+                Color 2 : 
+                </label> 
+                <input
+                 type="color"
+                 name = "initialColor2"
+                 defaultValue={this.state.initialColor2}  
+                 onChange = {this.onChange}
                  />
-                </label>
+                <Incrementer
+                  name = "IncrementColor2"
+                  min = "0"
+                  max = "1000"
+                  value= {this.state.IncrementColor1}
+                  onChange = {this.onChange}
+                />
           </div>
          
           <div className="div-wrapper">
-                <label className="label">
-                Mix Blend Mode :  
-                <SelectItem modes={modes}/>
-               </label>
-          </div>    
+                <label className="label  options">
+                Gradient Position
+                  </label> 
+                <SelectItem modes={gradientPosition} onChange = {this.onChangegradientPosition} currentValue={this.state.currentValuegradientPosition}/>
+              
+          </div>  
 
+          <div className="div-wrapper">
+                <label className="label  options">
+                Gradient Direction
+                  </label> 
+                <SelectItem modes={gradientsDirection} onChange = {this.onChangeSelectgradientDirection} currentValue={this.state.currentValuegradientdirection}/>
+              
+          </div>  
+          <div className="div-wrapper">
+                <label className="label options">
+                Mix Blend Mode
+                </label> 
+                <SelectItem modes={modes} onChange= {this.onChangeSelectModes}  currentValue={this.state.currentValuemode}/>
+          </div> 
+             
           <RangeItem
             value={this.state.opacity}
             name = "opacity"
@@ -69,8 +175,6 @@ import RangeItem  from './RangeItem';
             unit = "%"
             label = "Opacity"
           />
-
-
         </div>
      
     )
