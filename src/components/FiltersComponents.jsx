@@ -70,7 +70,7 @@ class FiltersComponents extends Component {
    return (
       <nav className="panel">
           <div  className="panel-heading">
-              <h1 className="title is-4 is-centered">Settings</h1>
+              <h1 className="title is-4 is-centered">Filters</h1>
               <p 
               className="button is-danger is-centered"
               onClick={this.onClick}
