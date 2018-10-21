@@ -10,16 +10,12 @@ class App extends Component {
   render() {
     return (
       <div className=" is-fluid">
-         
         <Navbar/>
-     
-
-
-          <div className="columns" >
+         <div className="columns" >
               <div className="column is-3">
                   <Filters/>
               </div>
-              <div className="column is-7">
+              <div className="column is-5">
                   <Preview/>
               </div>
            </div>

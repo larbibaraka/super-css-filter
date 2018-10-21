@@ -17,7 +17,7 @@ class Navbar extends Component {
         </a>
       </div>
     
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" className="navbar-menu">
    
       </div>
     </nav>
