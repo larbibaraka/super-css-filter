@@ -7,7 +7,7 @@ import Incrementer from './Incrementer';
 
   constructor(props){
     super(props);
-    this.state = {
+    this.state = {  
       initialColor1 : '#00d1b2',
       initialColor2 : '#c4c4c4',
       opacity : 100,
@@ -15,7 +15,8 @@ import Incrementer from './Incrementer';
       IncrementColor2 : 0,
       currentValuemode : 'Normal',
       currentValuegradientdirection : 'tobottom',
-      currentValuegradientPosition : 'centercenter'
+      currentValuegradientPosition : 'centercenter',
+      currentValuegradientSize : 'closestCorner'
 
     }
   }
@@ -47,11 +48,22 @@ import Incrementer from './Incrementer';
 
       onChangegradientPosition = (e) =>{
         console.log(e.target.value)
-    this.setState({
-      currentValuegradientPosition : e.target.value
-    })
-    console.log(this.state)
+        this.setState({
+          currentValuegradientPosition : e.target.value
+        })
+        console.log(this.state)
     }
+
+
+    onChangeSelectgradientSize = (e) =>{
+      console.log(e.target.value)
+      this.setState({
+        currentValuegradientPosition : e.target.value
+      })
+      console.log(this.state)
+    }
+
+    
 
 
 
@@ -79,17 +91,12 @@ import Incrementer from './Incrementer';
       {id: 19 , mode :'Unset' , name:'Unset'}
     ];
 
-    const gradientsDirection = [
-      {id: 1 , mode :'To Top' , name : 'totop'},
-      {id: 2 , mode :'To Top Left' , name : 'totopleft'},
-      {id: 3 , mode :'To Top Right' , name : 'totopright'},
-      {id: 4 , mode :'To Left' , name : 'toleft'},
-      {id: 5 , mode :'To Right' , name : 'toright'},
-      {id: 6 , mode :'To Bottom' , name : 'tobottom'},
-      {id: 7 , mode :'To Bottom Left' , name : 'tobottomleft'},
-      {id: 8 , mode :'To Bottom Right' , name : 'tobottomright'}
-  
-    ]
+    const gradientSize = [
+      {id: 1 , mode :'Closest Side' , name : 'closestSide'},
+      {id: 2 , mode :'Closest Corner' , name : 'closestCorner'},
+      {id: 3 , mode :'Fartherest Side' , name : 'fartherestside'},
+      {id: 4 , mode :'Fartherest Corner' , name : 'fartherestcorner'},
+      ]
    
     const gradientPosition = [
       {id: 1 , mode :'Left Top' , name : 'lefttop'},
@@ -154,9 +161,9 @@ import Incrementer from './Incrementer';
 
           <div className="div-wrapper">
                 <label className="label  options">
-                Gradient Direction
+                Gradient Size
                   </label> 
-                <SelectItem modes={gradientsDirection} onChange = {this.onChangeSelectgradientDirection} currentValue={this.state.currentValuegradientdirection}/>
+                <SelectItem modes={gradientSize} onChange = {this.onChangeSelectgradientSize} currentValue={this.state.currentValuegradientSize}/>
               
           </div>  
           <div className="div-wrapper">
