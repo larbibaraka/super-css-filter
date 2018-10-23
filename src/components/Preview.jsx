@@ -12,6 +12,7 @@ class Preview extends Component {
             width: 100%;
             padding: 2%;
             max-height: 725px;
+            border: 3px solid #eee;
       
        `;
     return (
@@ -26,6 +27,7 @@ class Preview extends Component {
                   <p className="level-item"><a className=" is-success">Show Css</a></p>
               </div>
           </nav>
+          <hr style={{background: '#eee'}}/>
 
           <div className="imagePreview">
               <img src={atx}/>

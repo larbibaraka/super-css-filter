@@ -15,7 +15,7 @@ class App extends Component {
               <div className="column is-3">
                   <Filters/>
               </div>
-              <div className="column is-5">
+              <div className="column is-4">
                   <Preview/>
               </div>
            </div>
