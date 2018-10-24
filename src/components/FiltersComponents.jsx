@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PanelOption from './PanelOption';
 import RangeItem  from './RangeItem';
 import RadioItem  from './RadioItem';
+//** adding the redux part */
+import {connect} from 'react-redux';
 class FiltersComponents extends Component {
   constructor(props){
     super(props);
@@ -205,4 +207,4 @@ class FiltersComponents extends Component {
     )
   }
 }
-export default FiltersComponents;
+export default connect(null,{})(FiltersComponents);

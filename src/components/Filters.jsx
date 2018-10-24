@@ -4,11 +4,6 @@ import FiltersComponents from './FiltersComponents';
  
 class Filters extends Component {
 
-  
-    
-
-     
-
   render() {
    
     const FILTERS = styled.div`

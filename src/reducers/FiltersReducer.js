@@ -11,7 +11,8 @@ import {
           CHANGE_SOLID_BACKGROUND_FILTER,
           CHANGE_LINEAR_GRADIENT_FILTER,
           CHANGE_RADIAL_GRADIENT_FILTER,
-          CHANGE_TYPE_CHOSEN_FILTER
+          CHANGE_TYPE_CHOSEN_FILTER,
+          CHANGE_CLEAR_ALL_FILTER
         } 
 from '../constants/types';
 
@@ -84,7 +85,9 @@ export default function(state = initialState , action = {}){
      case CHANGE_TYPE_CHOSEN_FILTER:
       state = {...state, typeChosen : action.payload}
       return state;
-               
+     case CHANGE_CLEAR_ALL_FILTER:
+      state = initialState;
+      return state;            
     default:
       return state;
   }
