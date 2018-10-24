@@ -2,6 +2,9 @@ import { combineReducers } from 'redux';
 import  FilterReducer from './FiltersReducer';
 import  PreviewReducer from './PreviewReducer';
 export default combineReducers({
-  FilterReducer : FilterReducer,
+  Filter : FilterReducer,
   PreviewReducer: PreviewReducer
 });
+
+
+ 

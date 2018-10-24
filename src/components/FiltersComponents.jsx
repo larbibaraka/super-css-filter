@@ -4,6 +4,25 @@ import RangeItem  from './RangeItem';
 import RadioItem  from './RadioItem';
 //** adding the redux part */
 import {connect} from 'react-redux';
+/** action part */
+import 
+{
+    change_blur_filter,
+    change_hue_rotate_filter,
+    change_invert_filter,
+    change_gray_scale_filter,
+    change_sepia_filter,
+    change_satuation_filter,
+    change_brightness_filter,
+    change_contrast_filter,
+    change_none_filter,
+    change_solid_background_filter,
+    change_linear_gradient_filter,
+    change_radial_gradient_filter,
+    change_type_chosen_filter,
+    clear_all
+}  from '../actions/FiltersAction';
+
 class FiltersComponents extends Component {
   constructor(props){
     super(props);
@@ -28,7 +47,18 @@ class FiltersComponents extends Component {
   onChange = (e)=>{
       console.log('--->' , e.target.name) 
 
+      if(e.target.name === 'blur'){
+        this.props.change_blur_filter(e.target.value);
+      }
+
+
+
+
       switch (e.target.name) {
+        case 'blur' :
+          this.props.change_blur_filter(e.target.value);
+          break;
+     
         case 'none':
           this.setState({none:true, solidBackground : false , linearGradient : false, radialGradient : false , typeChosen : 'none'});
           break;
@@ -69,6 +99,8 @@ class FiltersComponents extends Component {
     })
   }
   render() {
+    console.log('the reducer is ', this.props.FilterReducer)
+
    return (
       <nav className="panel">
           <div  className="panel-heading">
@@ -207,4 +239,43 @@ class FiltersComponents extends Component {
     )
   }
 }
-export default connect(null,{})(FiltersComponents);
+
+const mapStateToProps = (state) =>({
+ 
+     blur : state.Filter.blur,
+     hueRotate : state.Filter.hueRotate,
+     invert : state.Filter.invert,
+     grayScale : state.Filter.grayScale,
+     sepia : state.Filter.sepia,
+     saturation : state.Filter.saturation,
+     brightness : state.Filter.brightness,
+     contrast : state.Filter.contrast,
+     none : state.Filter.none,
+     solidBackground : state.Filter.solidBackground,
+     linearGradient  : state.Filter.linearGradient,
+     radialGradient  : state.Filter.radialGradient,
+     typeChosen : state.Filter.typeChosen
+
+})
+
+
+export default connect(
+  mapStateToProps,
+  { 
+    change_blur_filter,
+    change_hue_rotate_filter,
+    change_invert_filter,
+    change_gray_scale_filter,
+    change_sepia_filter,
+    change_satuation_filter,
+    change_brightness_filter,
+    change_contrast_filter,
+    change_none_filter,
+    change_solid_background_filter,
+    change_linear_gradient_filter,
+    change_radial_gradient_filter,
+    change_type_chosen_filter,
+    clear_all
+  }
+  )
+  (FiltersComponents);
