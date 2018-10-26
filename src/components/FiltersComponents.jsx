@@ -49,6 +49,7 @@ class FiltersComponents extends Component {
           this.props.change_contrast_filter(e.target.value);
           break;
         case 'radioPanel':
+          console.log(e.target.value)
           this.props.change_type_chosen_filter(e.target.value);
           break;
         default :

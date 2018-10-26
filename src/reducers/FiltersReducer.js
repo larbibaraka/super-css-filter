@@ -7,7 +7,8 @@ import {
           CHANGE_SATURATION_FILTER,
           CHANGE_BRIGHTNESS_FILTER,
           CHANGE_CONTRAST_FILTER,
-          CHANGE_CLEAR_ALL_FILTER
+          CHANGE_CLEAR_ALL_FILTER,
+          CHANGE_TYPE_CHOSEN_FILTER
         } 
 from '../constants/types';
 
@@ -56,6 +57,11 @@ export default function(state = initialState , action = {}){
      case CHANGE_CONTRAST_FILTER:
       state = {...state, contrast : action.payload}
       return state;
+
+      case CHANGE_TYPE_CHOSEN_FILTER:
+      state = {...state, typeChosen : action.payload}
+      return state;
+
           
      case CHANGE_CLEAR_ALL_FILTER:
         state = initialState;
