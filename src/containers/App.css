@@ -57,17 +57,17 @@ input[type=number]::-webkit-outer-spin-button {
   opacity: 1;
 }
 
-.div-wrapper .options{
+/*.div-wrapper .options{
   display: inline-block!important;
   width: 9rem;
 }
-
-.div-wrapper select {
+*/
+/*.div-wrapper select {
   width: 14rem;
   margin-left: 21px;
   position: relative;
   top: -6px;
-}
+}*/
 
 
 .imagePreview img{

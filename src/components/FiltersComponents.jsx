@@ -79,33 +79,12 @@ class FiltersComponents extends Component {
         case 'contrast' :
           this.props.change_contrast_filter(e.target.value);
           break;
-        /*case 'none' : 
-          this.props.change_none_filter(e.target.value);
+
+        case 'radioPanel':
+          this.props.change_type_chosen_filter(e.target.value);
           break;
-        case 'solidBackground' :
-          this.props.change_solid_background_filter(e.target.value);
-          break;
-        case 'linearGradient' :
-          this.props.change_linear_gradient_filter(e.target.value);
-          break;
-        case 'radialGradient' :
-          this.props.change_radial_gradient_filter(e.target.value);
-          break;
-       */
-        case 'none':
-          this.setState({none:true, solidBackground : false , linearGradient : false, radialGradient : false , typeChosen : 'none'});
-          break;
-        case 'solidBackground' :
-          this.setState({none:false, solidBackground : true , linearGradient : false, radialGradient : false , typeChosen : 'solidBackground'});
-          break;
-        case 'linearGradient':
-          this.setState({none:false, solidBackground : false , linearGradient : true, radialGradient : false , typeChosen : 'linearGradient'});
-          break;
-        case 'radialGradient' :
-          this.setState({none:false, solidBackground : false , linearGradient : false, radialGradient : true , typeChosen : 'radialGradient'});
-          break;  
-        default:
-          break;
+        default :
+        break;  
       }
 
       this.setState(
@@ -165,8 +144,6 @@ class FiltersComponents extends Component {
               unit = "dg"
               label = "Hue Rotate"
             />
-
-
           </div>
           <div className="panel-block"> 
              <RangeItem
@@ -239,31 +216,31 @@ class FiltersComponents extends Component {
             <div className="div-wrapper">
               <label className="label">OVERLAY :</label>
               <RadioItem
-                name = "none"
-                value={this.props.none}
+                value = "none"
+                name = "radioPanel"
                 onChange={this.onChange}
                 label="None"
                 />
               <RadioItem
-                name = "solidBackground"
-                value={this.state.solidBackground}
+                value = "solidBackground"
+                name  = "radioPanel"  
                 onChange={this.onChange}
                 label="Solid Background"
               />
               <RadioItem
-                name = "linearGradient"
-                value={this.state.linearGradient}
+                value = "linearGradient"
+                name  = "radioPanel"
                 onChange={this.onChange}
                 label="Linear Gradient"
               />
               <RadioItem
-                name = "radialGradient"
-                value={this.state.radialGradient}
+                value = "radialGradient"
+                name  = "radioPanel" 
                 onChange={this.onChange}
                 label="Radial Gradient"
               />
               <div className="div-wrapper">
-                <PanelOption type= {this.state.typeChosen}/>
+                <PanelOption type= {this.props.typeChosen}/>
               </div>
               
             </div>
