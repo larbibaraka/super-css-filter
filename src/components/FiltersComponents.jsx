@@ -15,46 +15,15 @@ import
     change_satuation_filter,
     change_brightness_filter,
     change_contrast_filter,
-    change_none_filter,
-    change_solid_background_filter,
-    change_linear_gradient_filter,
-    change_radial_gradient_filter,
     change_type_chosen_filter,
     clear_all
 }  from '../actions/FiltersAction';
 
 class FiltersComponents extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-        blur : 0,
-        hueRotate : 0,
-        invert : 0,
-        grayScale : 0,
-        sepia : 0,
-        saturation : 0,
-        brightness : 0 ,
-        contrast : 0,
-        none : true,
-        solidBackground : false,
-        linearGradient  : false,
-        radialGradient  : false,
-        typeChosen : 'none'
-     }
-
-  }
-
+  
+  
   onChange = (e)=>{
-      console.log('--->' , e.target.name) 
-
-      if(e.target.name === 'blur'){
-        this.props.change_blur_filter(e.target.value);
-      }
-
-
-
-
-      switch (e.target.name) {
+    switch (e.target.name) {
         case 'blur' :
           this.props.change_blur_filter(e.target.value);
           break;
@@ -79,7 +48,6 @@ class FiltersComponents extends Component {
         case 'contrast' :
           this.props.change_contrast_filter(e.target.value);
           break;
-
         case 'radioPanel':
           this.props.change_type_chosen_filter(e.target.value);
           break;
@@ -87,32 +55,15 @@ class FiltersComponents extends Component {
         break;  
       }
 
-      this.setState(
-        {
-          [e.target.name] : e.target.value,
-        }
-      )   
+       
   }
 
   onClick = () =>{
-    this.setState({
-        blur : 0,
-        hueRotate : 0,
-        invert : 0,
-        grayScale : 0,
-        sepia : 0,
-        saturation : 0,
-        brightness : 0 ,
-        contrast : 0,
-        none : true,
-        solidBackground : false,
-        linearGradient  : false,
-        radialGradient  : false,
-    })
+    this.props.clear_all();
+
   }
   render() {
-    console.log('the reducer is ', this.props.FilterReducer)
-
+     
    return (
       <nav className="panel">
           <div  className="panel-heading">
@@ -240,9 +191,8 @@ class FiltersComponents extends Component {
                 label="Radial Gradient"
               />
               <div className="div-wrapper">
-                <PanelOption type= {this.props.typeChosen}/>
+                <PanelOption type={this.props.typeChosen}/>
               </div>
-              
             </div>
           </div>
        </nav>
@@ -251,7 +201,6 @@ class FiltersComponents extends Component {
 }
 
 const mapStateToProps = (state) =>({
- 
      blur : state.Filter.blur,
      hueRotate : state.Filter.hueRotate,
      invert : state.Filter.invert,
@@ -260,12 +209,7 @@ const mapStateToProps = (state) =>({
      saturation : state.Filter.saturation,
      brightness : state.Filter.brightness,
      contrast : state.Filter.contrast,
-     none : state.Filter.none,
-     solidBackground : state.Filter.solidBackground,
-     linearGradient  : state.Filter.linearGradient,
-     radialGradient  : state.Filter.radialGradient,
      typeChosen : state.Filter.typeChosen
-
 })
 
 
@@ -280,10 +224,6 @@ export default connect(
     change_satuation_filter,
     change_brightness_filter,
     change_contrast_filter,
-    change_none_filter,
-    change_solid_background_filter,
-    change_linear_gradient_filter,
-    change_radial_gradient_filter,
     change_type_chosen_filter,
     clear_all
   }

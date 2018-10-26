@@ -7,11 +7,6 @@ import {
           CHANGE_SATURATION_FILTER,
           CHANGE_BRIGHTNESS_FILTER,
           CHANGE_CONTRAST_FILTER,
-          CHANGE_NONE_FILTER,
-          CHANGE_SOLID_BACKGROUND_FILTER,
-          CHANGE_LINEAR_GRADIENT_FILTER,
-          CHANGE_RADIAL_GRADIENT_FILTER,
-          CHANGE_TYPE_CHOSEN_FILTER,
           CHANGE_CLEAR_ALL_FILTER
         } 
 from '../constants/types';
@@ -22,13 +17,9 @@ const initialState  = {
   invert : 0,
   grayScale : 0,
   sepia : 0,
-  saturation : 0,
-  brightness : 0 ,
-  contrast : 0,
-  none : true,
-  solidBackground : false,
-  linearGradient  : false,
-  radialGradient  : false,
+  saturation : 100,
+  brightness : 100 ,
+  contrast : 100,
   typeChosen : 'none'
 }
 
@@ -65,29 +56,10 @@ export default function(state = initialState , action = {}){
      case CHANGE_CONTRAST_FILTER:
       state = {...state, contrast : action.payload}
       return state;
-    
-     case CHANGE_NONE_FILTER:
-      state = {...state, none : action.payload}
-      return state;
-     
-     case CHANGE_SOLID_BACKGROUND_FILTER:
-      state = {...state, solidBackground : action.payload}
-      return state;
-            
-     case CHANGE_LINEAR_GRADIENT_FILTER:
-      state = {...state, linearGradient : action.payload}
-      return state;
-             
-     case CHANGE_RADIAL_GRADIENT_FILTER:
-      state = {...state, radialGradient : action.payload}
-      return state;
-              
-     case CHANGE_TYPE_CHOSEN_FILTER:
-      state = {...state, typeChosen : action.payload}
-      return state;
+          
      case CHANGE_CLEAR_ALL_FILTER:
-      state = initialState;
-      return state;            
+        state = initialState;
+        return state;           
     default:
       return state;
   }

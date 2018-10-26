@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 import atx from './atx.jpg'
-
+import {connect} from 'react-redux';
  
 class Preview extends Component {
   render() {
@@ -13,10 +13,35 @@ class Preview extends Component {
             padding: 2%;
             max-height: 725px;
             border: 3px solid #eee;
-      
        `;
+
+    const Image = styled.img`
+            -webkit-filter : 
+                    blur(${this.props.blur}px)     
+                    contrast(${this.props.contrast}%)
+                    brightness(${this.props.brightness}%) 
+                    grayscale(${this.props.grayScale}%) 
+                    hue-rotate(${this.props.hueRotate}deg) 
+                    invert(${this.props.invert}%)
+                    saturate(${this.props.saturation}%)
+                    sepia(${this.props.sepia}%) 
+            ;  
+            filter :
+                    blur(${this.props.blur}px)     
+                    contrast(${this.props.contrast}%)
+                    brightness(${this.props.brightness}%) 
+                    grayscale(${this.props.grayScale}%) 
+                    hue-rotate(${this.props.hueRotate}deg) 
+                    invert(${this.props.invert}%)
+                    saturate(${this.props.saturation}%)
+                    sepia(${this.props.sepia}%) 
+                    ;`
+        ;  
+
+        console.log('this is contrast : ', this.props.contrast)
     return (
       <PREVIEW>
+
           <nav className="level">
               <div className="level-left">
                 <div className="level-item">
@@ -29,12 +54,25 @@ class Preview extends Component {
           </nav>
           <hr style={{background: '#eee'}}/>
 
-          <div className="imagePreview">
-              <img src={atx}/>
-
-          </div>
+          <figure className="imagePreview">
+              <Image src={atx} alt={""}/>
+          </figure>
       </PREVIEW>
     )
   }
 }
-export default  Preview;
+
+const mapStateToProps  = state => ({
+    blur : state.Filter.blur,
+    hueRotate : state.Filter.hueRotate,
+    invert : state.Filter.invert,
+    grayScale : state.Filter.grayScale,
+    sepia : state.Filter.sepia,
+    saturation : state.Filter.saturation,
+    brightness : state.Filter.brightness,
+    contrast : state.Filter.contrast,
+    typeChosen : state.Filter.typeChosen
+})
+
+
+export default  connect(mapStateToProps, {})(Preview);

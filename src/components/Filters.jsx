@@ -5,16 +5,9 @@ import FiltersComponents from './FiltersComponents';
 class Filters extends Component {
 
   render() {
-   
-    const FILTERS = styled.div`
-  
-    `;
     return (
-      <FILTERS>
-        <FiltersComponents/>
-      </FILTERS>
-     
-    )
+          <FiltersComponents/>
+      )
   }
 }
 export default Filters;

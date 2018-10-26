@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar is-danger" role="navigation" aria-label="main navigation" >
+      <nav className="navbar is-success" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
       
         <a className="navbar-item" href="https">
