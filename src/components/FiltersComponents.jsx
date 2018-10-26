@@ -58,7 +58,40 @@ class FiltersComponents extends Component {
         case 'blur' :
           this.props.change_blur_filter(e.target.value);
           break;
-     
+        case 'hueRotate' :
+          this.props.change_hue_rotate_filter(e.target.value);
+          break;
+        case 'invert' : 
+          this.props.change_invert_filter(e.target.value);
+          break;
+        case 'grayScale' : 
+          this.props.change_gray_scale_filter(e.target.value);
+          break;
+        case 'sepia' :
+          this.props.change_sepia_filter(e.target.value);
+          break;
+        case 'saturation' :
+          this.props.change_satuation_filter(e.target.value);
+          break;
+        case 'brightness' :
+          this.props.change_brightness_filter(e.target.value);
+          break;
+        case 'contrast' :
+          this.props.change_contrast_filter(e.target.value);
+          break;
+        /*case 'none' : 
+          this.props.change_none_filter(e.target.value);
+          break;
+        case 'solidBackground' :
+          this.props.change_solid_background_filter(e.target.value);
+          break;
+        case 'linearGradient' :
+          this.props.change_linear_gradient_filter(e.target.value);
+          break;
+        case 'radialGradient' :
+          this.props.change_radial_gradient_filter(e.target.value);
+          break;
+       */
         case 'none':
           this.setState({none:true, solidBackground : false , linearGradient : false, radialGradient : false , typeChosen : 'none'});
           break;
@@ -113,7 +146,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
            <RangeItem
-              value={this.state.blur}
+              value={this.props.blur}
               name = "blur"
               min  = "0"
               max  = "10"
@@ -124,7 +157,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
             <RangeItem
-              value={this.state.hueRotate}
+              value={this.props.hueRotate}
               name = "hueRotate"
               min  = "0"
               max  = "360"
@@ -137,7 +170,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
              <RangeItem
-              value={this.state.invert}
+              value={this.props.invert}
               name = "invert"
               min  = "0"
               max  = "100"
@@ -148,7 +181,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
             <RangeItem
-              value={this.state.grayScale}
+              value={this.props.grayScale}
               name = "grayScale"
               min  = "0"
               max  = "100"
@@ -159,7 +192,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
             <RangeItem
-              value={this.state.sepia}
+              value={this.props.sepia}
               name = "sepia"
               min  = "0"
               max  = "100"
@@ -170,7 +203,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
             <RangeItem
-              value={this.state.saturation}
+              value={this.props.saturation}
               name = "saturation"
               min  = "0"
               max  = "200"
@@ -182,7 +215,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
             <RangeItem
-              value={this.state.brightness}
+              value={this.props.brightness}
               name = "brightness"
               min  = "0"
               max  = "200"
@@ -193,7 +226,7 @@ class FiltersComponents extends Component {
           </div>
           <div className="panel-block"> 
             <RangeItem
-              value={this.state.contrast}
+              value={this.props.contrast}
               name = "contrast"
               min  = "0"
               max  = "200"
@@ -207,7 +240,7 @@ class FiltersComponents extends Component {
               <label className="label">OVERLAY :</label>
               <RadioItem
                 name = "none"
-                value={this.state.none}
+                value={this.props.none}
                 onChange={this.onChange}
                 label="None"
                 />
