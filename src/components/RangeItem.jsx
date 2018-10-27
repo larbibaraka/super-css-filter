@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RangeItem({name, value, max,min,onChange,label,unit}) {
+function RangeItem({name, value, max,min,onChange,label,unit,step}) {
  
   return (
     <div className="div-wrapper">
@@ -12,9 +12,11 @@ function RangeItem({name, value, max,min,onChange,label,unit}) {
           name ={name}
           min = {min}
           max ={max}
+          step={step}
           defaultValue={value}
         />
-        <output>{value}{unit}</output>
+        
+        <output>{(name === 'opacity')?(value*100) : value}{unit}</output>
   </div>
   )
 }

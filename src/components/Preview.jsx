@@ -49,8 +49,8 @@ class Preview extends Component {
                     left: 0;
                     position: absolute;
                     pointer-events: none;
-                    opacity: 0.51;
-                    background: rgba(15, 243, 243, 0.87);
+                    opacity: ${this.props.opacity};
+                    background: ${this.props.backgroundColor};
                 }
 
             `
@@ -95,6 +95,9 @@ const mapStateToProps = state => ({
   brightness: state.Filter.brightness,
   contrast: state.Filter.contrast,
   typeChosen: state.Filter.typeChosen,
+  opacity : state.Filter.opacity,   
+  mode : state.Filter.mode,
+  backgroundColor: state.Filter.backgroundColor
 })
 
 export default connect(

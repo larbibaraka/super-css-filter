@@ -57,8 +57,7 @@ import
     ]
     return (
       <div className="field-wrapper">
-       
-          <div className="div-wrapper">
+            <div className="div-wrapper">
                 <label className="label">
                 Background color :  
                 <input
@@ -81,15 +80,13 @@ import
             value={this.props.opacity}
             name = "opacity"
             min  = "0"
-            max  = "100"
+            step="0.1"
+            max  = "1"
             onChange = {this.onChange}
             unit = "%"
             label = "Opacity"
           />
-
-
         </div>
-     
     )
   }
 }

@@ -30,7 +30,7 @@ const initialState = {
   typeChosen: 'none',
   backgroundColor: '#00d1b2',
   backgroundColor2: '#c4c4c4',
-  opacity: 100,
+  opacity: 0.5,
   IncrementColor1: 0,
   IncrementColor2: 0,
   mode: 'Normal',
@@ -106,8 +106,8 @@ export default function(state = initialState, action = {}) {
       return state;
 
     case CHANGE_OPACITY_VALUE :
-      
-      state = {...state , opacity : action.payload };
+      //let opacity = action.payload /100;
+      state = {...state , opacity : action.payload  };
       return state;
 
     default:
