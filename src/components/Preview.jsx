@@ -22,6 +22,11 @@ class Preview extends Component {
       padding: 2%;
       max-height: 725px;
       border: 3px solid #eee;
+      position: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+    max-height: 800px
     `;
 
 
