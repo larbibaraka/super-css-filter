@@ -17,14 +17,14 @@ class Preview extends Component {
 
     const Figure = styled.div`       
             -webkit-filter : 
-                                blur(${this.props.blur}px)     
-                                contrast(${this.props.contrast}%)
-                                brightness(${this.props.brightness}%) 
-                                grayscale(${this.props.grayScale}%) 
-                                hue-rotate(${this.props.hueRotate}deg) 
-                                invert(${this.props.invert}%)
-                                saturate(${this.props.saturation}%)
-                                sepia(${this.props.sepia}%) 
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
                         ;  
              filter :
                      blur(${this.props.blur}px)     

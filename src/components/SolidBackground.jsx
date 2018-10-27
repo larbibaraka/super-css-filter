@@ -6,14 +6,19 @@ import RangeItem  from './RangeItem';
   constructor(props){
     super(props);
     this.state = {
-      initialColor : '#00d1b2',
-      opacity : 100
+      backgroundColor : '#00d1b2',
+      opacity : 100,
+      mixblendmode : 'normal'
     }
   }
 
   onChange = (e) =>{
+    console.log('mode is : ', e.target.value)
+    
     this.setState({
-      opacity :  e.target.value
+      [e.target.name] : e.target.value,
+     
+      mixblendmode : e.target.value
     })
   }
 
@@ -48,7 +53,9 @@ import RangeItem  from './RangeItem';
                 Background color :  
                 <input
                  type="color"
-                 defaultValue={this.state.initialColor}  
+                 defaultValue={this.state.backgroundColor}  
+                 onChange = {this.onChange}
+                 name="backgroundColor"
                  />
                 </label>
           </div>
@@ -56,7 +63,7 @@ import RangeItem  from './RangeItem';
           <div className="div-wrapper">
                 <label className="label">
                 Mix Blend Mode :  
-                <SelectItem modes={modes}/>
+                <SelectItem modes={modes} onChange={this.onChange} />
                </label>
           </div>    
 

@@ -17,7 +17,6 @@ import Incrementer from './Incrementer';
       currentValuegradientdirection : 'tobottom',
       currentValuegradientPosition : 'centercenter',
       currentValuegradientSize : 'closestCorner'
-
     }
   }
 
