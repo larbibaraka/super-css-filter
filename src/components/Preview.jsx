@@ -1,9 +1,18 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import atx from './atx.jpg'
-import {connect} from 'react-redux'
+import atx from './atx.jpg';
+import {connect} from 'react-redux';
+import NAVForImage from './NavForImage';
 
 class Preview extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            typeOfDiv : this.props.typeChosen
+        }
+    }
+
   render() {
     const PREVIEW = styled.div`
       margin-top: 2%;
@@ -13,10 +22,12 @@ class Preview extends Component {
       padding: 2%;
       max-height: 725px;
       border: 3px solid #eee;
-    `
+    `;
 
-    const Figure = styled.div`       
-            -webkit-filter : 
+
+    const FigureNone = styled.div `
+    
+    -webkit-filter : 
                      blur(${this.props.blur}px)     
                      contrast(${this.props.contrast}%)
                      brightness(${this.props.brightness}%) 
@@ -25,7 +36,7 @@ class Preview extends Component {
                      invert(${this.props.invert}%)
                      saturate(${this.props.saturation}%)
                      sepia(${this.props.sepia}%) 
-                        ;  
+             ;  
              filter :
                      blur(${this.props.blur}px)     
                      contrast(${this.props.contrast}%)
@@ -35,11 +46,34 @@ class Preview extends Component {
                      invert(${this.props.invert}%)
                      saturate(${this.props.saturation}%)
                      sepia(${this.props.sepia}%) 
-                ;
-                    
-              }
+                ;             
+              position: relative;  
+       `;
 
+
+    const FigureSolidBackground = styled.div` 
+            -webkit-filter : 
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
+             ;  
+             filter :
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
+                ;             
                position: relative;  
+
                 ::before {
                     content: "";
                     display: block;
@@ -51,37 +85,42 @@ class Preview extends Component {
                     pointer-events: none;
                     opacity: ${this.props.opacity};
                     background: ${this.props.backgroundColor};
+                    mix-blend-mode: ${this.props.mode};
                 }
+            `;
 
-            `
-
-    console.log('this is contrast : ', this.props.contrast)
-    return (
-      <PREVIEW>
-        <nav className="level">
-          <div className="level-left">
-            <div className="level-item">
-              <p className="level-item">
-                <a className=" is-black">
-                  <i className="	fas fa-shield-alt" />
-                  Upload Image
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="level-right">
-            <p className="level-item">
-              <a className=" is-success">Show Css</a>
-            </p>
-          </div>
-        </nav>
-        <hr style={{background: '#eee'}} />
-
-        <Figure className="filter">
-          <img src={atx} />
-        </Figure>
-      </PREVIEW>
-    )
+    console.log('this  state : ', this.state.typeOfDiv)
+    
+    switch (this.props.typeChosen) {
+        case 'none':
+        return (
+           <PREVIEW>
+                <NAVForImage/>
+                <hr style={{background: '#eee'}} />
+                <FigureNone className="filter">
+                    <img src={atx} />
+                </FigureNone>
+            </PREVIEW>
+        )
+        
+        case 'solidBackground':
+        return (
+            <PREVIEW>
+                <NAVForImage/>
+                <hr style={{background: '#eee'}} />
+                <FigureSolidBackground className="filter">
+                    <img src={atx} />
+                </FigureSolidBackground>
+            </PREVIEW>
+        )
+        
+        default:
+        return (true)
+    }
+    
+ 
+    
+    
   }
 }
 

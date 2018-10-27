@@ -72,7 +72,7 @@ import
           <div className="div-wrapper">
                 <label className="label">
                 Mix Blend Mode :  
-                <SelectItem modes={modes} onChange={this.onChange} name="mode"/>
+                <SelectItem modes={modes} onChange={this.onChange} name="mode" currentValue={this.props.mode}/>
                </label>
           </div>    
 
