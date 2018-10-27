@@ -80,6 +80,25 @@ input[type=number]::-webkit-outer-spin-button {
 }*/
 
 
+.filter {
+  position: relative;
+  
+}
+.filter::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: hard-light;
+
+  opacity: 1;
+  
+  background : linear-gradient(to left bottom, rgba(1, 118, 234, 0.5) 10%, rgba(255, 33, 33, 0.04) 100%);
+}
 
 img{
   vertical-align: middle;

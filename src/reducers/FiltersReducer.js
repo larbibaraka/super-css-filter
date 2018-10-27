@@ -9,8 +9,10 @@ import {
   CHANGE_CONTRAST_FILTER,
   CHANGE_CLEAR_ALL_FILTER,
   CHANGE_TYPE_CHOSEN_FILTER,
-  CHANGE_BACKGROUND_COLOR,
-  CHANGE_INCREMENT_COLOR,
+  CHANGE_BACKGROUND1_COLOR,
+  CHANGE_BACKGROUND2_COLOR,
+  CHANGE_INCREMENT1_COLOR,
+  CHANGE_INCREMENT2_COLOR,
   CHANGE_MIX_BLEND_MODE,
   CHANGE_GRADIENT_DIRECTION,
   CHANGE_GRADIENT_POSITION,
@@ -28,13 +30,13 @@ const initialState = {
   brightness: 100,
   contrast: 100,
   typeChosen: 'none',
-  backgroundColor: '#00d1b2',
+  backgroundColor1: '#00d1b2',
   backgroundColor2: '#c4c4c4',
   opacity: 0.5,
   IncrementColor1: 0,
   IncrementColor2: 0,
   mode: 'Normal',
-  gradientdirection: 'tobottom',
+  gradientdirection: 'To Bottom',
   gradientPosition: 'centercenter',
   gradientSize: 'closestCorner',
 }
@@ -81,12 +83,21 @@ export default function(state = initialState, action = {}) {
       state = initialState
       return state;
 
-    case CHANGE_BACKGROUND_COLOR:
-      state = {...state, backgroundColor: action.payload};
+    case CHANGE_BACKGROUND1_COLOR:
+      state = {...state, backgroundColor1: action.payload};
       return state;
 
-    case CHANGE_INCREMENT_COLOR:
+    
+      case CHANGE_BACKGROUND2_COLOR:
+      state = {...state, backgroundColor2: action.payload};
+      return state;  
+
+    case CHANGE_INCREMENT1_COLOR:
       state = {...state, IncrementColor1: action.payload};
+      return state;
+      
+    case CHANGE_INCREMENT2_COLOR:
+      state = {...state, IncrementColor2: action.payload};
       return state;
 
     case CHANGE_MIX_BLEND_MODE:

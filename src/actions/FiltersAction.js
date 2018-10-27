@@ -4,7 +4,8 @@ import {
   CHANGE_SEPIA_FILTER,  CHANGE_SATURATION_FILTER,
   CHANGE_BRIGHTNESS_FILTER,  CHANGE_CONTRAST_FILTER,
   CHANGE_TYPE_CHOSEN_FILTER,  CHANGE_CLEAR_ALL_FILTER,
-  CHANGE_BACKGROUND_COLOR,  CHANGE_INCREMENT_COLOR,
+  CHANGE_BACKGROUND1_COLOR,CHANGE_BACKGROUND2_COLOR, 
+  CHANGE_INCREMENT1_COLOR,  CHANGE_INCREMENT2_COLOR,
   CHANGE_MIX_BLEND_MODE,  CHANGE_GRADIENT_DIRECTION,
   CHANGE_GRADIENT_POSITION,  CHANGE_GRADIENT_SIZE,
   CHANGE_OPACITY_VALUE
@@ -74,16 +75,32 @@ export function clear_all(){
     })
 }
 
-export function change_background_color(value) {
+export function change_background1_color(value) {
     return ({
-      type : CHANGE_BACKGROUND_COLOR,
+      type : CHANGE_BACKGROUND1_COLOR,
       payload : value
     })
 }
 
-export function change_increment_color(value) {
+export function change_background2_color(value) {
   return ({
-    type : CHANGE_INCREMENT_COLOR ,
+    type : CHANGE_BACKGROUND2_COLOR,
+    payload : value
+  })
+}
+
+
+
+export function change_increment1_color(value) {
+  return ({
+    type : CHANGE_INCREMENT1_COLOR ,
+    payload : value
+  })
+}
+
+export function change_increment2_color(value) {
+  return ({
+    type : CHANGE_INCREMENT2_COLOR ,
     payload : value
   })
 }

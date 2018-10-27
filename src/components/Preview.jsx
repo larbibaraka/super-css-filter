@@ -26,8 +26,7 @@ class Preview extends Component {
 
 
     const FigureNone = styled.div `
-    
-    -webkit-filter : 
+        -webkit-filter : 
                      blur(${this.props.blur}px)     
                      contrast(${this.props.contrast}%)
                      brightness(${this.props.brightness}%) 
@@ -84,8 +83,47 @@ class Preview extends Component {
                     position: absolute;
                     pointer-events: none;
                     opacity: ${this.props.opacity};
-                    background: ${this.props.backgroundColor};
+                    background: ${this.props.backgroundColor1};
                     mix-blend-mode: ${this.props.mode};
+                }
+            `;
+
+     const FigurelinearGradient = styled.div` 
+            -webkit-filter : 
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
+             ;  
+             filter :
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
+                ;             
+               position: relative;  
+
+                ::before {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    opacity: ${this.props.opacity};
+                    mix-blend-mode: ${this.props.mode};
+                    background: -webkit-linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
+                    background: linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
                 }
             `;
 
@@ -97,7 +135,7 @@ class Preview extends Component {
            <PREVIEW>
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
-                <FigureNone className="filter">
+                <FigureNone >
                     <img src={atx} />
                 </FigureNone>
             </PREVIEW>
@@ -108,9 +146,29 @@ class Preview extends Component {
             <PREVIEW>
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
-                <FigureSolidBackground className="filter">
+                <FigureSolidBackground>
                     <img src={atx} />
                 </FigureSolidBackground>
+            </PREVIEW>
+        )
+        case 'linearGradient' :
+        return(
+            <PREVIEW>
+                <NAVForImage/>
+                <hr style={{background: '#eee'}} />
+                <FigurelinearGradient >
+                    <img src={atx} />
+                </FigurelinearGradient>
+            </PREVIEW>
+        )
+        case 'radialGradient' :
+        return(
+            <PREVIEW>
+                <NAVForImage/>
+                <hr style={{background: '#eee'}} />
+                <FigureNone className="filter">
+                    <img src={atx} />
+                </FigureNone>
             </PREVIEW>
         )
         
@@ -118,6 +176,7 @@ class Preview extends Component {
         return (true)
     }
     
+ 
  
     
     
@@ -136,7 +195,11 @@ const mapStateToProps = state => ({
   typeChosen: state.Filter.typeChosen,
   opacity : state.Filter.opacity,   
   mode : state.Filter.mode,
-  backgroundColor: state.Filter.backgroundColor
+  backgroundColor1: state.Filter.backgroundColor1,
+  backgroundColor2: state.Filter.backgroundColor2,
+  IncrementColor1:state.Filter.IncrementColor1,
+  IncrementColor2: state.Filter.IncrementColor2,
+  gradientdirection: state.Filter.gradientdirection,
 })
 
 export default connect(

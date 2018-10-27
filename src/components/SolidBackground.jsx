@@ -4,7 +4,7 @@ import RangeItem  from './RangeItem';
 import {connect} from 'react-redux';
 import 
     {
-      change_background_color,
+      change_background1_color,
       change_opacity_value,
       change_mix_blend_mode
     } 
@@ -18,7 +18,7 @@ import
     
     switch (e.target.name) {
       case 'backgroundColor':
-        this.props.change_background_color(e.target.value);
+        this.props.change_background1_color(e.target.value);
         break;
       case 'mode':
         this.props.change_mix_blend_mode(e.target.value);
@@ -62,7 +62,7 @@ import
                 Background color :  
                 <input
                  type="color"
-                 defaultValue={this.props.backgroundColor}  
+                 defaultValue={this.props.backgroundColor1}  
                  onChange = {this.onChange}
                  name="backgroundColor"
                  />
@@ -94,7 +94,7 @@ import
 const mapStateToProps = (state) => ({
     opacity : state.Filter.opacity,
     mode : state.Filter.mode,
-    backgroundColor: state.Filter.backgroundColor
+    backgroundColor1: state.Filter.backgroundColor1
 });
 
  
@@ -102,7 +102,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps ,
    {
-     change_background_color,
+     change_background1_color,
      change_opacity_value,
      change_mix_blend_mode
   }
