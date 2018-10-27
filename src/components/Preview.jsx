@@ -88,7 +88,7 @@ class Preview extends Component {
                 }
             `;
 
-     const FigurelinearGradient = styled.div` 
+    const FigurelinearGradient = styled.div` 
             -webkit-filter : 
                      blur(${this.props.blur}px)     
                      contrast(${this.props.contrast}%)
@@ -126,6 +126,67 @@ class Preview extends Component {
                     background: linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
                 }
             `;
+            
+        const FigureradialGradient = styled.div` 
+            -webkit-filter : 
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
+             ;  
+             filter :
+                     blur(${this.props.blur}px)     
+                     contrast(${this.props.contrast}%)
+                     brightness(${this.props.brightness}%) 
+                     grayscale(${this.props.grayScale}%) 
+                     hue-rotate(${this.props.hueRotate}deg) 
+                     invert(${this.props.invert}%)
+                     saturate(${this.props.saturation}%)
+                     sepia(${this.props.sepia}%) 
+                ;             
+               position: relative;  
+
+                /*::before {
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    opacity: ${this.props.opacity};
+                    mix-blend-mode: ${this.props.mode};
+                    /*background: -webkit-linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
+                    background: linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
+                   */
+                   /* background: -webkit-radial-gradient(${this.props.gradientPosition}, circle ${this.props.gradientSize}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%)
+                
+                   background: -webkit-radial-gradient(100% 50%, circle farthest-side, rgba(1, 118, 234, 0.5) 10, rgba(255, 33, 33, 0.04));
+                   background: radial-gradient(100% 50%, circle farthest-side, rgba(1, 118, 234, 0.5) 10, rgba(255, 33, 33, 0.04));
+                */
+               ::before {
+              
+                    content: "";
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    opacity: ${this.props.opacity};
+                    mix-blend-mode: ${this.props.mode};
+                    background: -webkit-radial-gradient(${this.props.gradientPosition}, circle ${this.props.gradientSize}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
+
+                }
+            `;
+      
+
 
     console.log('this  state : ', this.state.typeOfDiv)
     
@@ -166,9 +227,9 @@ class Preview extends Component {
             <PREVIEW>
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
-                <FigureNone className="filter">
+                <FigureradialGradient> 
                     <img src={atx} />
-                </FigureNone>
+                </FigureradialGradient>
             </PREVIEW>
         )
         
@@ -200,6 +261,8 @@ const mapStateToProps = state => ({
   IncrementColor1:state.Filter.IncrementColor1,
   IncrementColor2: state.Filter.IncrementColor2,
   gradientdirection: state.Filter.gradientdirection,
+  gradientPosition : state.Filter.gradientPosition,
+  gradientSize : state.Filter.gradientSize
 })
 
 export default connect(

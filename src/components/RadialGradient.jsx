@@ -2,68 +2,60 @@ import React, { Component } from 'react';
 import SelectItem from './SelectItem';
 import RangeItem  from './RangeItem';
 import Incrementer from './Incrementer';
+import {connect} from 'react-redux';
+import 
+    {
+      change_background1_color,
+      change_background2_color,
+      change_opacity_value,
+      change_mix_blend_mode,
+      change_increment1_color,
+      change_increment2_color,
+      change_gradient_position,
+      change_gradient_size
+    } 
+    from '../actions/FiltersAction';
 
  class RadialGradient extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {  
-      initialColor1 : '#00d1b2',
-      initialColor2 : '#c4c4c4',
-      opacity : 100,
-      IncrementColor1 : 0,
-      IncrementColor2 : 0,
-      currentValuemode : 'Normal',
-      currentValuegradientdirection : 'tobottom',
-      currentValuegradientPosition : 'centercenter',
-      currentValuegradientSize : 'closestCorner'
-    }
-  }
+  
 
   onChange = (e) =>{
-    console.log(e.target.name)
-    console.log(e.target.value)
-    this.setState({
-      [e.target.name] :  e.target.value,
-    })
-  }
+   
+    switch (e.target.name) {
+      case 'backgroundColor1':
+        this.props.change_background1_color(e.target.value);
+        break;
 
-  onChangeSelectModes = (e) =>{
-     console.log(e.target.value)
-    this.setState({
-      currentValuemode : e.target.value
-    })
-    console.log(this.state)
-  }
+      case 'backgroundColor2':
+        this.props.change_background2_color(e.target.value);
+        break;   
 
+      case 'IncrementColor1' :
+       this.props.change_increment1_color(e.target.value);
+       break;   
 
-  onChangeSelectgradientDirection = (e) =>{
-        console.log(e.target.value)
-    this.setState({
-      currentValuegradientdirection : e.target.value
-    })
-    console.log(this.state)
-  }
-
-      onChangegradientPosition = (e) =>{
-        console.log(e.target.value)
-        this.setState({
-          currentValuegradientPosition : e.target.value
-        })
-        console.log(this.state)
+      case 'IncrementColor2' :
+       this.props.change_increment2_color(e.target.value);
+       break;   
+      case 'gradientsize' :
+       this.props.change_gradient_size(e.target.value);
+       break; 
+      case 'gradientpos' :
+        console.log(e.target.value.toLowerCase())
+        this.props.change_gradient_position(e.target.value.toLowerCase());
+        break; 
+      case 'mode':
+        this.props.change_mix_blend_mode(e.target.value);
+        break;
+      case 'opacity' :
+        this.props.change_opacity_value(e.target.value);
+        break;   
+      default:
+        break;
     }
 
-
-    onChangeSelectgradientSize = (e) =>{
-      console.log(e.target.value)
-      this.setState({
-        currentValuegradientPosition : e.target.value
-      })
-      console.log(this.state)
-    }
-
-    
-
+  }
 
 
 
@@ -91,42 +83,42 @@ import Incrementer from './Incrementer';
     ];
 
     const gradientSize = [
-      {id: 1 , mode :'Closest Side' , name : 'closestSide'},
-      {id: 2 , mode :'Closest Corner' , name : 'closestCorner'},
-      {id: 3 , mode :'Fartherest Side' , name : 'fartherestside'},
-      {id: 4 , mode :'Fartherest Corner' , name : 'fartherestcorner'},
+      {id: 1 , mode :'closest-side' , name : 'Closest Side'},
+      {id: 2 , mode :'closest-corner' , name : 'Closest Corner'},
+      {id: 3 , mode :'fartherest-side' , name : 'Fartherest Side'},
+      {id: 4 , mode :'fartherest-corner' , name : 'Fartherest Corner'},
       ]
    
     const gradientPosition = [
-      {id: 1 , mode :'Left Top' , name : 'lefttop'},
-      {id: 2 , mode :'Center Top' , name : 'centertop'},
-      {id: 3 , mode :'Right Top' , name : 'righttop'},
-      {id: 4 , mode :'Left Center' , name : 'leftcenter'},
-      {id: 5 , mode :'Center Center' , name : 'centercenter'},
-      {id: 6 , mode :'Right Center' , name : 'rightcenter'},
-      {id: 7 , mode :'Left Bottom' , name : 'leftbottom'},
-      {id: 8 , mode :'Center Bottom' , name : 'centerbottom'},
-      {id: 9 , mode :'Right Bottom' , name : 'rightbottom'},
+      {id: 1 , mode :'Left Top' , name : 'Left Top'},
+      {id: 2 , mode :'Center Top' , name : 'Center Top'},
+      {id: 3 , mode :'Right Top' , name : 'Right Top'},
+      {id: 4 , mode :'Left Center' , name : 'Left Center'},
+      {id: 5 , mode :'Center Center' , name : 'Center Center'},
+      {id: 6 , mode :'Right Center' , name : 'Right Center'},
+      {id: 7 , mode :'Left Bottom' , name : 'Left Bottom'},
+      {id: 8 , mode :'Center Bottom' , name : 'Center Bottom'},
+      {id: 9 , mode :'Right Bottom' , name : 'Right Bottom'},
     ]
-   
-   
+
+      
     return (
       <div className="field-wrapper">
-          <div className="div-wrapper">
+           <div className="div-wrapper">
                 <label className="label  options">
                 Color 1 :  
                 </label>
                 <input
                  type="color"
-                 name = "initialColor1"
-                 defaultValue={this.state.initialColor1}  
+                 name = "backgroundColor1"
+                 defaultValue={this.props.backgroundColor1}  
                  onChange = {this.onChange}
                  />              
                 <Incrementer
                   name = "IncrementColor1"
                   min = "0"
                   max = "1000"
-                  value= {this.state.IncrementColor1}
+                  value= {this.props.IncrementColor1}
                   onChange = {this.onChange}
                 />
           </div>
@@ -137,24 +129,25 @@ import Incrementer from './Incrementer';
                 </label> 
                 <input
                  type="color"
-                 name = "initialColor2"
-                 defaultValue={this.state.initialColor2}  
+                 name = "backgroundColor2"
+                 defaultValue={this.props.backgroundColor2}  
                  onChange = {this.onChange}
                  />
                 <Incrementer
                   name = "IncrementColor2"
                   min = "0"
                   max = "1000"
-                  value= {this.state.IncrementColor1}
+                  value= {this.props.IncrementColor2}
                   onChange = {this.onChange}
                 />
           </div>
+         
          
           <div className="div-wrapper">
                 <label className="label  options">
                 Gradient Position
                   </label> 
-                <SelectItem modes={gradientPosition} onChange = {this.onChangegradientPosition} currentValue={this.state.currentValuegradientPosition}/>
+                <SelectItem modes={gradientPosition} onChange = {this.onChange} currentValue={this.props.gradientPosition} name="gradientpos"/>
               
           </div>  
 
@@ -162,21 +155,22 @@ import Incrementer from './Incrementer';
                 <label className="label  options">
                 Gradient Size
                   </label> 
-                <SelectItem modes={gradientSize} onChange = {this.onChangeSelectgradientSize} currentValue={this.state.currentValuegradientSize}/>
+                <SelectItem modes={gradientSize} onChange = {this.onChange} currentValue={this.props.gradientSize} name="gradientsize"/>
               
           </div>  
           <div className="div-wrapper">
                 <label className="label options">
                 Mix Blend Mode
                 </label> 
-                <SelectItem modes={modes} onChange= {this.onChangeSelectModes}  currentValue={this.state.currentValuemode}/>
+                <SelectItem modes={modes} onChange= {this.onChange}  currentValue={this.props.mode} name="mode"/>
           </div> 
              
           <RangeItem
-            value={this.state.opacity}
+            value={this.props.opacity}
             name = "opacity"
             min  = "0"
-            max  = "100"
+            step="0.1"
+            max  = "1"
             onChange = {this.onChange}
             unit = "%"
             label = "Opacity"
@@ -186,4 +180,33 @@ import Incrementer from './Incrementer';
     )
   }
 }
-export default RadialGradient;
+
+
+
+const mapStateToProps = (state) => ({
+  opacity : state.Filter.opacity,
+  mode : state.Filter.mode,
+  backgroundColor1: state.Filter.backgroundColor1,
+  backgroundColor2: state.Filter.backgroundColor2,
+  IncrementColor1:state.Filter.IncrementColor1,
+  IncrementColor2: state.Filter.IncrementColor2,
+  gradientPosition : state.Filter.gradientPosition,
+  gradientSize : state.Filter.gradientSize
+});
+
+
+
+
+export default connect(mapStateToProps ,
+ {
+    change_background1_color,
+    change_background2_color,
+    change_opacity_value,
+    change_mix_blend_mode,
+    change_increment1_color,
+    change_increment2_color,
+    change_gradient_position,
+    change_gradient_size
+  }
+)(RadialGradient);
+

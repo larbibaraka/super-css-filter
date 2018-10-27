@@ -33,12 +33,12 @@ const initialState = {
   backgroundColor1: '#00d1b2',
   backgroundColor2: '#c4c4c4',
   opacity: 0.5,
-  IncrementColor1: 0,
-  IncrementColor2: 0,
+  IncrementColor1: 10,
+  IncrementColor2: 100,
   mode: 'Normal',
   gradientdirection: 'To Bottom',
-  gradientPosition: 'centercenter',
-  gradientSize: 'closestCorner',
+  gradientPosition: 'center center',
+  gradientSize: 'closest-corner',
 }
 
 export default function(state = initialState, action = {}) {

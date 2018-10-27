@@ -54,23 +54,7 @@ import
     }
   }
 
-  onChangeSelectModes = (e) =>{
-     console.log(e.target.value)
-    this.setState({
-      currentValuemode : e.target.value
-    })
-    console.log(this.state)
-  }
 
-
-  onChangeSelectgradientDirection = (e) =>{
-    
-    console.log(e.target.value)
-    this.setState({
-      currentValuegradientdirection : e.target.value
-    })
-    console.log(this.state)
-  }
 
 
 
@@ -107,7 +91,7 @@ import
       {id: 7 , mode :'To Bottom Left' , name : 'To Bottom Left'},
       {id: 8 , mode :'To Bottom Right' , name : 'To Bottom Right'}
   
-    ]
+    ];
     return (
       <div className="field-wrapper">
           <div className="div-wrapper">
@@ -153,7 +137,6 @@ import
                 Gradient Direction
                   </label> 
                 <SelectItem modes={gradientsDirection} onChange = {this.onChange} currentValue={this.props.gradientdirection} name="gradientdirection"/>
-              
           </div>  
           <div className="div-wrapper">
                 <label className="label options">
@@ -204,5 +187,4 @@ export default connect(mapStateToProps ,
     change_increment2_color,
     change_gradient_direction
   }
-)
-(LinearGradient);
+)(LinearGradient);
