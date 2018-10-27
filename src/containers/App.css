@@ -81,21 +81,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 
-.filter {
-  position: relative;
-}
-.filter::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.51;
-  background: rgba(15, 243, 243, 0.87);
-}
 img{
   vertical-align: middle;
 }

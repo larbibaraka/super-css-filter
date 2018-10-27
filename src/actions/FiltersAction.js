@@ -7,9 +7,9 @@ import {
   CHANGE_BACKGROUND_COLOR,  CHANGE_INCREMENT_COLOR,
   CHANGE_MIX_BLEND_MODE,  CHANGE_GRADIENT_DIRECTION,
   CHANGE_GRADIENT_POSITION,  CHANGE_GRADIENT_SIZE,
+  CHANGE_OPACITY_VALUE
 } 
 from '../constants/types';
-
 
 export function change_blur_filter(value){
   return ({
@@ -112,6 +112,13 @@ export function change_gradient_position(value) {
 export function change_gradient_size(value) {
   return ({
     type : CHANGE_GRADIENT_SIZE,
+    payload : value
+  })
+}
+
+export function change_opacity_value(value) {
+  return({
+    type : CHANGE_OPACITY_VALUE,
     payload : value
   })
 }

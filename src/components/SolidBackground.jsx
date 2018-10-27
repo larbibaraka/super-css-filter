@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
 import SelectItem from './SelectItem';   
 import RangeItem  from './RangeItem';
+import {connect} from 'react-redux';
+import 
+    {
+      change_background_color,
+      change_opacity_value,
+      change_mix_blend_mode
+    } 
+    from '../actions/FiltersAction';
+
  class SolidBackground extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      backgroundColor : '#00d1b2',
-      opacity : 100,
-      mixblendmode : 'normal'
-    }
-  }
-
   onChange = (e) =>{
+    console.log('mode name is  : ', e.target.name)
     console.log('mode is : ', e.target.value)
     
-    this.setState({
-      [e.target.name] : e.target.value,
-     
-      mixblendmode : e.target.value
-    })
-  }
+    switch (e.target.name) {
+      case 'backgroundColor':
+        this.props.change_background_color(e.target.value);
+        break;
+      case 'mode':
+        this.props.change_mix_blend_mode(e.target.value);
+        break;
+      case 'opacity' :
+        this.props.change_opacity_value(e.target.value);
+        break;   
+      default:
+        break;
+    }
+
+    }
 
 
   render() {
@@ -53,7 +63,7 @@ import RangeItem  from './RangeItem';
                 Background color :  
                 <input
                  type="color"
-                 defaultValue={this.state.backgroundColor}  
+                 defaultValue={this.props.backgroundColor}  
                  onChange = {this.onChange}
                  name="backgroundColor"
                  />
@@ -63,12 +73,12 @@ import RangeItem  from './RangeItem';
           <div className="div-wrapper">
                 <label className="label">
                 Mix Blend Mode :  
-                <SelectItem modes={modes} onChange={this.onChange} />
+                <SelectItem modes={modes} onChange={this.onChange} name="mode"/>
                </label>
           </div>    
 
           <RangeItem
-            value={this.state.opacity}
+            value={this.props.opacity}
             name = "opacity"
             min  = "0"
             max  = "100"
@@ -83,4 +93,21 @@ import RangeItem  from './RangeItem';
     )
   }
 }
-export default SolidBackground;
+
+const mapStateToProps = (state) => ({
+    opacity : state.Filter.opacity,
+    mode : state.Filter.mode,
+    backgroundColor: state.Filter.backgroundColor
+});
+
+ 
+
+
+export default connect(mapStateToProps ,
+   {
+     change_background_color,
+     change_opacity_value,
+     change_mix_blend_mode
+  }
+  )
+(SolidBackground);
