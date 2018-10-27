@@ -1,11 +1,20 @@
 html{
   height: 100%;
+  overflow-y: hidden;
 
 }
 
-body{
- 
+body::-webkit-scrollbar {
+  width: 1em;
 }
 
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(226, 179, 26, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: rgb(216, 19, 19);
+outline: 1px solid rgb(31, 85, 139);
+}
 
  

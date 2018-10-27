@@ -17,16 +17,15 @@ class Preview extends Component {
     const PREVIEW = styled.div`
       margin-top: 2%;
       background: #fff;
-      height: 100%;
-      width: 100%;
+      
       padding: 2%;
-      max-height: 725px;
+     
       border: 3px solid #eee;
-      position: fixed;
-    width: 100%;
-    height: 100%;
-    max-width: 700px;
-    max-height: 800px
+      /*position: fixed;*/
+        width: 100%;
+        height: 100%;
+        max-width: 700px;
+        max-height: 800px
     `;
 
 
