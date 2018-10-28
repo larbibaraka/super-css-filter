@@ -21,7 +21,9 @@ import
 
 class Filters extends Component {
   
-  
+ 
+
+
   onChange = (e)=>{
     switch (e.target.name) {
         case 'blur' :
@@ -55,18 +57,19 @@ class Filters extends Component {
         default :
         break;  
       }
-
-       
+      
   }
+
 
   onClick = () =>{
     this.props.clear_all();
+   }
 
-  }
+
   render() {
-     
+   
    return (
-      <div style={{height: '900px' , direction: 'ltr' , overflowY: 'scroll' }}>
+      <div style={{height: '93vh', direction: 'ltr' , overflowY: 'scroll' }}>
       <nav className="panel" >
           <div  className="panel-heading">
               <h1 className="title is-4 is-centered">Filters</h1>
