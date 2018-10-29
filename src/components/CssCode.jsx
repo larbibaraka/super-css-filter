@@ -21,11 +21,17 @@ class CssCode extends Component {
         max-height: 800px;      
    `;
 
-   const BlockQuote = styled.blockquote `
+   const BlockQuote1 = styled.blockquote `
                      border : 1px solid red; 
                      border-left-color: #E91E63!important;
                 `;
   
+  const BlockQuote2= styled.blockquote `
+                border : 1px solid #009688; 
+                border-left-color: #009688!important;
+           `;
+
+                
 
      
 
@@ -34,27 +40,34 @@ class CssCode extends Component {
           <div className="box">
             <div className="content">     
                 <h1>CSS</h1>      
-                <BlockQuote>
+                <BlockQuote1>
                   <div dangerouslySetInnerHTML={{__html: '.YOUR_CLASS { '}} /> 
                   <div dangerouslySetInnerHTML={{__html: 'position: relative;'}} /> 
                   <div dangerouslySetInnerHTML={{__html: '-webkit-filter: sepia(48%) grayscale(41%) invert(50%); '}} /> 
                   <div dangerouslySetInnerHTML={{__html: 'filter: sepia(48%) grayscale(41%) invert(50%);'}} /> 
                   <div dangerouslySetInnerHTML={{__html: '}'}} /> 
-                </BlockQuote>
+                </BlockQuote1>
+
+                <BlockQuote1>
+                  <div dangerouslySetInnerHTML={{__html: '.YOUR_CLASS { '}} /> 
+                  <div dangerouslySetInnerHTML={{__html: 'position: relative;'}} /> 
+                  <div dangerouslySetInnerHTML={{__html: '-webkit-filter: sepia(48%) grayscale(41%) invert(50%); '}} /> 
+                  <div dangerouslySetInnerHTML={{__html: 'filter: sepia(48%) grayscale(41%) invert(50%);'}} /> 
+                  <div dangerouslySetInnerHTML={{__html: '}'}} /> 
+                </BlockQuote1>
             </div>
           </div>  
 
            <div className="box">
             <div className="content">     
                 <h1>HTML</h1>      
-                <BlockQuote>
-                 &lt;div class="YOUR_CLASS"&gt;
-                  <br/>
-                      &lt;img src="..." alt="..."&gt;   
-                  <br/>             
+                <BlockQuote2>
+                  &lt;div class="YOUR_CLASS"&gt;
+                    <br/>
+                        &lt;img src="..." alt="..."&gt;   
+                    <br/>             
                   &lt;/div&gt;
-              
-                </BlockQuote>
+                 </BlockQuote2>
             </div>
           </div>      
        </CSSCODE> 
