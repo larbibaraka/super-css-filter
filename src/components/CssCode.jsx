@@ -3,35 +3,60 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 
 class CssCode extends Component {
+  
+  
+
+  cssClass= () =>{
+    console.log('hellocss')
+   }
+
+  
   render() {
     const CSSCODE = styled.div`
-        margin-top: 2%;
-        background: #fff;
-        padding: 2%;
+        margin-top: 2%;     
         border: 3px solid #eee;
         width: 100%;
         height: 100%;
         max-width: 700px;
-        max-height: 800px
+        max-height: 800px;      
    `;
-   const H1 = styled.h1 `
-          text-align: centre!important; 
-   `
 
+   const BlockQuote = styled.blockquote `
+                     border : 1px solid red; 
+                     border-left-color: #E91E63!important;
+                `;
+  
+
+     
 
     return (
       <CSSCODE >
-          <H1 >Css Code</H1>
           <div className="box">
-            <div className="content">
-             <p>
-              <code>
-                  .p &copy;
-              </code>
-
-             </p>
+            <div className="content">     
+                <h1>CSS</h1>      
+                <BlockQuote>
+                  <div dangerouslySetInnerHTML={{__html: '.YOUR_CLASS { '}} /> 
+                  <div dangerouslySetInnerHTML={{__html: 'position: relative;'}} /> 
+                  <div dangerouslySetInnerHTML={{__html: '-webkit-filter: sepia(48%) grayscale(41%) invert(50%); '}} /> 
+                  <div dangerouslySetInnerHTML={{__html: 'filter: sepia(48%) grayscale(41%) invert(50%);'}} /> 
+                  <div dangerouslySetInnerHTML={{__html: '}'}} /> 
+                </BlockQuote>
             </div>
-          </div>        
+          </div>  
+
+           <div className="box">
+            <div className="content">     
+                <h1>HTML</h1>      
+                <BlockQuote>
+                 &lt;div class="YOUR_CLASS"&gt;
+                  <br/>
+                      &lt;img src="..." alt="..."&gt;   
+                  <br/>             
+                  &lt;/div&gt;
+              
+                </BlockQuote>
+            </div>
+          </div>      
        </CSSCODE> 
     )
   }
