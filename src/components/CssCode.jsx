@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 import {connect} from 'react-redux';
+import Highlight from 'react-highlight.js'
 
 class CssCode extends Component {
-  
-  
 
   cssClass= () =>{
     console.log('hellocss')
@@ -40,36 +39,25 @@ class CssCode extends Component {
           <div className="box">
             <div className="content">     
                 <h1>CSS</h1>      
-                <BlockQuote1>
-                  <div dangerouslySetInnerHTML={{__html: '.YOUR_CLASS { '}} /> 
-                  <div dangerouslySetInnerHTML={{__html: 'position: relative;'}} /> 
-                  <div dangerouslySetInnerHTML={{__html: '-webkit-filter: sepia(48%) grayscale(41%) invert(50%); '}} /> 
-                  <div dangerouslySetInnerHTML={{__html: 'filter: sepia(48%) grayscale(41%) invert(50%);'}} /> 
-                  <div dangerouslySetInnerHTML={{__html: '}'}} /> 
-                </BlockQuote1>
-
-                <BlockQuote1>
-                  <div dangerouslySetInnerHTML={{__html: '.YOUR_CLASS { '}} /> 
-                  <div dangerouslySetInnerHTML={{__html: 'position: relative;'}} /> 
-                  <div dangerouslySetInnerHTML={{__html: '-webkit-filter: sepia(48%) grayscale(41%) invert(50%); '}} /> 
-                  <div dangerouslySetInnerHTML={{__html: 'filter: sepia(48%) grayscale(41%) invert(50%);'}} /> 
-                  <div dangerouslySetInnerHTML={{__html: '}'}} /> 
-                </BlockQuote1>
+             
+                <Highlight language="css">
+                   { `p { color : red }`}
+                </Highlight>
+                    
             </div>
           </div>  
 
            <div className="box">
             <div className="content">     
                 <h1>HTML</h1>      
-                <BlockQuote2>
-                  &lt;div class="YOUR_CLASS"&gt;
-                    <br/>
-                        &lt;img src="..." alt="..."&gt;   
-                    <br/>             
-                  &lt;/div&gt;
-                 </BlockQuote2>
+                <Highlight language="css">
+                   { 'p { color : red }'}
+                </Highlight>
             </div>
           </div>      
+
+
+
        </CSSCODE> 
     )
   }

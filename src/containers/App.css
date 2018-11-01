@@ -112,3 +112,12 @@ input[type=number]::-webkit-outer-spin-button {
 img{
   vertical-align: middle;
 }
+
+
+/*.hljs{
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fff;
+  color: #555
+}*/
