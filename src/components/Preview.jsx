@@ -154,25 +154,6 @@ class Preview extends Component {
                 ;             
                position: relative;  
 
-                /*::before {
-                    content: "";
-                    display: block;
-                    height: 100%;
-                    width: 100%;
-                    top: 0;
-                    left: 0;
-                    position: absolute;
-                    pointer-events: none;
-                    opacity: ${this.props.opacity};
-                    mix-blend-mode: ${this.props.mode};
-                    /*background: -webkit-linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
-                    background: linear-gradient(${this.props.gradientdirection}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%);
-                   */
-                   /* background: -webkit-radial-gradient(${this.props.gradientPosition}, circle ${this.props.gradientSize}, ${this.props.backgroundColor1} ${this.props.IncrementColor1}%, ${this.props.backgroundColor2} ${this.props.IncrementColor2}%)
-                
-                   background: -webkit-radial-gradient(100% 50%, circle farthest-side, rgba(1, 118, 234, 0.5) 10, rgba(255, 33, 33, 0.04));
-                   background: radial-gradient(100% 50%, circle farthest-side, rgba(1, 118, 234, 0.5) 10, rgba(255, 33, 33, 0.04));
-                */
                ::before {
               
                     content: "";

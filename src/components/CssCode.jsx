@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import Highlight from 'react-highlight.js'
+
 
 class CssCode extends Component {
 
@@ -29,20 +29,27 @@ class CssCode extends Component {
                 border : 1px solid #009688; 
                 border-left-color: #009688!important;
            `;
-
-                
-
-     
-
     return (
       <CSSCODE >
           <div className="box">
             <div className="content">     
                 <h1>CSS</h1>      
-             
-                <Highlight language="css">
-                   { `p { color : red }`}
-                </Highlight>
+                <BlockQuote1>
+                   { 
+                     ".YOUR_CLASS {"
+                   }
+                   <br/>
+                   {
+                    'position: relative;'
+                   }
+                   <br/>
+                   {
+                    <p>filter : sepia(${this.props.sepia}%) brightness(${this.props.brightness}%) contrast(${this.props.contrast}%) saturate(${this.props.saturation}%) grayscale(${this.props.grayScale}%) invert(${this.props.invert}%) hue-rotate(${this.props.hueRotate}deg) blur(${this.props.blur}px); </p>
+                   }         
+                   {
+                    "}"
+                   }
+                </BlockQuote1>
                     
             </div>
           </div>  
@@ -50,9 +57,7 @@ class CssCode extends Component {
            <div className="box">
             <div className="content">     
                 <h1>HTML</h1>      
-                <Highlight language="css">
-                   { 'p { color : red }'}
-                </Highlight>
+                
             </div>
           </div>      
 
