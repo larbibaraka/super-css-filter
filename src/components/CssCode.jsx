@@ -22,6 +22,7 @@ class CssCode extends Component {
 
    const BlockQuote1 = styled.blockquote `
                      border : 1px solid red; 
+                     background: #d4faff!important;
                      border-left-color: #E91E63!important;
                 `;
   
@@ -29,6 +30,8 @@ class CssCode extends Component {
                 border : 1px solid #009688; 
                 border-left-color: #009688!important;
            `;
+
+  
     return (
       <CSSCODE >
           <div className="box">
@@ -36,7 +39,7 @@ class CssCode extends Component {
                 <h1>CSS</h1>      
                 <BlockQuote1>
                    { 
-                     ".YOUR_CLASS {"
+                     ".your_class {"
                    }
                    <br/>
                    {
@@ -44,12 +47,48 @@ class CssCode extends Component {
                    }
                    <br/>
                    {
-                    <p>filter : sepia(${this.props.sepia}%) brightness(${this.props.brightness}%) contrast(${this.props.contrast}%) saturate(${this.props.saturation}%) grayscale(${this.props.grayScale}%) invert(${this.props.invert}%) hue-rotate(${this.props.hueRotate}deg) blur(${this.props.blur}px); </p>
-                   }         
+                    
+                    <p>filter :
+                     { (this.props.sepia !== 0) ? <div>sepia({this.props.sepia}%)</div> : null }
+                     { (this.props.brightness !== 100) ? <div>brightness({this.props.brightness}%)</div> : null }
+                     { (this.props.contrast !== 100) ? <div>contrast({this.props.contrast}%)</div> : null }
+                     { (this.props.saturation !== 100) ? <div>saturation({this.props.saturation}%)</div> : null }
+                     { (this.props.grayScale !== 0) ? <div>grayscale({this.props.grayScale}%)</div> : null }
+                     { (this.props.invert !== 0) ? <div>invert({this.props.invert}%)</div> : null }
+                     { (this.props.hueRotate !== 0) ? <div>hue-rotate({this.props.hueRotate}deg)</div> : null }
+                     { (this.props.blur !== 0) ? <div>blur({this.props.blur}px)</div> : null }
+                    </p>
+                    }
+                           
+                   {
+                    "}"
+                   }
+                   <br/>
+                   {
+                     ".your_class::before {"
+                   }
+                   <br/>
+                   {
+                    <p>
+                    <div>content: "";</div>
+                     <div>display: block;</div>
+                     <div>height: 100%;</div>
+                     <div>width: 100%;</div>
+                     <div>top: 0;</div>
+                     <div>left: 0;</div>
+                     <div>position: absolute;</div>
+                     <div>pointer-events: none;</div>
+                     <div>opacity: 0.5;</div>
+                     <div>background: rgba(62, 162, 253, 0.5);</div>
+                    </p>
+                   }
                    {
                     "}"
                    }
                 </BlockQuote1>
+
+
+                
                     
             </div>
           </div>  
