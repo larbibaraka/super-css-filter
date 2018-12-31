@@ -39,44 +39,46 @@ const initialState = {
   gradientdirection: 'To Bottom',
   gradientPosition: 'center center',
   gradientSize: 'closest-corner',
+  filtersChanged : false,
+  overlayChanged : false
 }
 
 export default function(state = initialState, action = {}) {
   switch (action.type) {
     case CHANGE_BLUR_FILTER:
-      state = {...state, blur: action.payload};
+      state = {...state, blur: action.payload , filtersChanged :true};
       return state;
 
     case CHANGE_HUE_ROTATE_FILTER:
-      state = {...state, hueRotate: action.payload};
+      state = {...state, hueRotate: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_INVERT_FILTER:
-      state = {...state, invert: action.payload};
+      state = {...state, invert: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_GRAY_SCALE_FILTER:
-      state = {...state, grayScale: action.payload};
+      state = {...state, grayScale: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_SEPIA_FILTER:
-      state = {...state, sepia: action.payload};
+      state = {...state, sepia: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_SATURATION_FILTER:
-      state = {...state, saturation: action.payload};
+      state = {...state, saturation: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_BRIGHTNESS_FILTER:
-      state = {...state, brightness: action.payload};
+      state = {...state, brightness: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_CONTRAST_FILTER:
-      state = {...state, contrast: action.payload};
+      state = {...state, contrast: action.payload, filtersChanged :true};
       return state;
 
     case CHANGE_TYPE_CHOSEN_FILTER:
-      state = {...state, typeChosen: action.payload};
+      state = {...state, typeChosen: action.payload , overlayChanged :true};
       return state;
 
     case CHANGE_CLEAR_ALL_FILTER:
@@ -84,43 +86,42 @@ export default function(state = initialState, action = {}) {
       return state;
 
     case CHANGE_BACKGROUND1_COLOR:
-      state = {...state, backgroundColor1: action.payload};
+      state = {...state, backgroundColor1: action.payload, overlayChanged :true};
       return state;
 
     
       case CHANGE_BACKGROUND2_COLOR:
-      state = {...state, backgroundColor2: action.payload};
+      state = {...state, backgroundColor2: action.payload, overlayChanged :true};
       return state;  
 
     case CHANGE_INCREMENT1_COLOR:
-      state = {...state, IncrementColor1: action.payload};
+      state = {...state, IncrementColor1: action.payload, overlayChanged :true};
       return state;
       
     case CHANGE_INCREMENT2_COLOR:
-      state = {...state, IncrementColor2: action.payload};
+      state = {...state, IncrementColor2: action.payload, overlayChanged :true};
       return state;
 
     case CHANGE_MIX_BLEND_MODE:
-      state = {...state, mode: action.payload};
+      state = {...state, mode: action.payload, overlayChanged :true};
       return state;
 
     case CHANGE_GRADIENT_DIRECTION:
-      state = {...state, gradientdirection: action.payload};
+      state = {...state, gradientdirection: action.payload, overlayChanged :true};
       return state;
 
     case CHANGE_GRADIENT_POSITION:
-      state = {...state, gradientPosition: action.payload};
+      state = {...state, gradientPosition: action.payload, overlayChanged :true};
       return state;
 
     case CHANGE_GRADIENT_SIZE:
-      state = {...state, gradientSize: action.payload};
+      state = {...state, gradientSize: action.payload, overlayChanged :true};
       return state;
 
     case CHANGE_OPACITY_VALUE :
       //let opacity = action.payload /100;
-      state = {...state , opacity : action.payload  };
+      state = {...state , opacity : action.payload  , overlayChanged :true};
       return state;
-
     default:
       return state;
   }

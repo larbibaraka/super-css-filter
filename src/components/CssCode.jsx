@@ -22,7 +22,7 @@ class CssCode extends Component {
 
    const BlockQuote1 = styled.blockquote `
                      border : 1px solid red; 
-                     background: #d4faff!important;
+                     background: #efefef!important;
                      border-left-color: #E91E63!important;
                 `;
   
@@ -47,61 +47,105 @@ class CssCode extends Component {
                    }
                    <br/>
                    {
-                    
-                    <p>filter :
-                     { (this.props.sepia !== 0) ? <div>sepia({this.props.sepia}%)</div> : null }
-                     { (this.props.brightness !== 100) ? <div>brightness({this.props.brightness}%)</div> : null }
-                     { (this.props.contrast !== 100) ? <div>contrast({this.props.contrast}%)</div> : null }
-                     { (this.props.saturation !== 100) ? <div>saturation({this.props.saturation}%)</div> : null }
-                     { (this.props.grayScale !== 0) ? <div>grayscale({this.props.grayScale}%)</div> : null }
-                     { (this.props.invert !== 0) ? <div>invert({this.props.invert}%)</div> : null }
-                     { (this.props.hueRotate !== 0) ? <div>hue-rotate({this.props.hueRotate}deg)</div> : null }
-                     { (this.props.blur !== 0) ? <div>blur({this.props.blur}px)</div> : null }
-                    </p>
+                     (this.props.filtersChanged) ? 
+                     <p style={{marginBottom:0}}>filter :
+                     { (this.props.sepia !== 0) ? <span>  sepia({this.props.sepia}%)</span> : null }
+                     { (this.props.brightness !== 100) ? <span>  brightness({this.props.brightness}%)</span> : null }
+                     { (this.props.contrast !== 100) ? <span>  contrast({this.props.contrast}%)</span> : null }
+                     { (this.props.saturation !== 100) ? <span>  saturation({this.props.saturation}%)</span> : null }
+                     { (this.props.grayScale !== 0) ? <span>  grayscale({this.props.grayScale}%)</span> : null }
+                     { (this.props.invert !== 0) ? <span>  invert({this.props.invert}%)</span> : null }
+                     { (this.props.hueRotate !== 0) ? <span>  hue-rotate({this.props.hueRotate}deg)</span> : null }
+                     { (this.props.blur !== 0) ? <span>  blur({this.props.blur}px)</span> : null }
+                    ;</p>
+                    : 
+                    null
                     }
-                           
-                   {
-                    "}"
-                   }
-                   <br/>
-                   {
-                     ".your_class::before {"
-                   }
-                   <br/>
-                   {
-                    <p>
-                    <div>content: "";</div>
-                     <div>display: block;</div>
-                     <div>height: 100%;</div>
-                     <div>width: 100%;</div>
-                     <div>top: 0;</div>
-                     <div>left: 0;</div>
-                     <div>position: absolute;</div>
-                     <div>pointer-events: none;</div>
-                     <div>opacity: 0.5;</div>
-                     <div>background: rgba(62, 162, 253, 0.5);</div>
-                    </p>
-                   }
-                   {
-                    "}"
-                   }
-                </BlockQuote1>
-
-
-                
+                    {
+                     (this.props.filtersChanged) ? 
+                     <p style={{marginBottom:0}}>-webkit-filter :
+                     { (this.props.sepia !== 0) ? <span>  sepia({this.props.sepia}%)</span> : null }
+                     { (this.props.brightness !== 100) ? <span>  brightness({this.props.brightness}%)</span> : null }
+                     { (this.props.contrast !== 100) ? <span>  contrast({this.props.contrast}%)</span> : null }
+                     { (this.props.saturation !== 100) ? <span>  saturation({this.props.saturation}%)</span> : null }
+                     { (this.props.grayScale !== 0) ? <span>  grayscale({this.props.grayScale}%)</span> : null }
+                     { (this.props.invert !== 0) ? <span>  invert({this.props.invert}%)</span> : null }
+                     { (this.props.hueRotate !== 0) ? <span>  hue-rotate({this.props.hueRotate}deg)</span> : null }
+                     { (this.props.blur !== 0) ? <span>  blur({this.props.blur}px)</span> : null }
+                    ;</p>
+                    : 
+                    null
+                    }
+                    {
                     
+                      "}"
+                      
+                    
+                   }
+
+                    {
+                     (this.props.overlayChanged) ? 
+                      <br/>
+                      :
+                      null
+                    }
+                    {
+                    (this.props.overlayChanged) ? 
+                     ".your_class::before {"
+                     :
+                     null
+                    }
+                    {
+                     (this.props.overlayChanged) ? 
+                      <br/>
+                      :
+                      null
+                    }
+                   {
+                    (this.props.overlayChanged) ? 
+                    <div>
+                     <p style={{marginBottom: 0}}>content: "";</p>
+                     <p style={{marginBottom: 0}}>display: block;</p>
+                     <p style={{marginBottom: 0}}>height: 100%;</p>
+                     <p style={{marginBottom: 0}}>width: 100%;</p>
+                     <p style={{marginBottom: 0}}>top: 0;</p>
+                     <p style={{marginBottom: 0}}>left: 0;</p>
+                     <p style={{marginBottom: 0}}>position: absolute;</p>
+                     <p style={{marginBottom: 0}}>pointer-events: none;</p>
+                     <p style={{marginBottom: 0}}>opacity: 0.5;</p>
+                     <p style={{marginBottom: 0}}>background: rgba(62, 162, 253, 0.5);</p>
+                    </div>
+                    :
+                    null
+                   }
+                   {
+                    (this.props.overlayChanged) ? 
+                   "}"
+                   :
+                   null
+                   }
+                </BlockQuote1>            
             </div>
           </div>  
 
            <div className="box">
             <div className="content">     
-                <h1>HTML</h1>      
-                
+                <h1>HTML</h1>
+                <BlockQuote2>
+                   {
+                     "<figure class=\"your_class\">"
+                   }
+                   <br/>
+                   {
+                     "<img src=\"...\">"
+                   }
+                   <br/>
+                   {
+                     "</figure>"
+                   }
+                </BlockQuote2>      
             </div>
           </div>      
-
-
-
        </CSSCODE> 
     )
   }
@@ -124,7 +168,9 @@ const mapStateToProps = state => ({
   IncrementColor2: state.Filter.IncrementColor2,
   gradientdirection: state.Filter.gradientdirection,
   gradientPosition : state.Filter.gradientPosition,
-  gradientSize : state.Filter.gradientSize
+  gradientSize : state.Filter.gradientSize,
+  filtersChanged : state.Filter.filtersChanged,
+  overlayChanged : state.Filter.overlayChanged
 })
 
 export default connect( mapStateToProps, { })  (CssCode);
