@@ -1,3 +1,4 @@
+/*================= types for FiltersReducer ==================*/
 export const CHANGE_BLUR_FILTER = "CHANGE_BLUR_FILTER";
 export const CHANGE_HUE_ROTATE_FILTER = "CHANGE_HUE_ROTATE_FILTER";
 export const CHANGE_INVERT_FILTER = "CHANGE_INVERT_FILTER";
@@ -23,3 +24,9 @@ export const CHANGE_GRADIENT_DIRECTION   = "CHANGE_GRADIENT_DIRECTION";
 export const CHANGE_GRADIENT_POSITION   = "CHANGE_GRADIENT_POSITION";
 export const CHANGE_GRADIENT_SIZE   = "CHANGE_GRADIENT_SIZE";
 export const CHANGE_OPACITY_VALUE = "CHANGE_OPACITY_VALUE";
+/*================= types for FiltersReducer ==================*/
+
+/*================= types for PreviewReducer ==================*/
+
+export const CHANGE_SRC_OF_IMAGE = "CHANGE_SRC_OF_IMAGE";
+export const SHOW_CSS = "SHOW_CSS";

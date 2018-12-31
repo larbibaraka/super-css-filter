@@ -13,13 +13,15 @@ class Preview extends Component {
         }
     }
 
+    
+
+ 
+
   render() {
     const PREVIEW = styled.div`
       margin-top: 2%;
       background: #fff;
-      
       padding: 2%;
-     
       border: 3px solid #eee;
       /*position: fixed;*/
         width: 100%;
@@ -181,8 +183,8 @@ class Preview extends Component {
            <PREVIEW>
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
-                <FigureNone >
-                    <img src={atx} />
+                <FigureNone>
+                    <img id="output" src={atx} />
                 </FigureNone>
             </PREVIEW>
         )

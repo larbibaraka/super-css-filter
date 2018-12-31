@@ -1,18 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import SolidBackgroundCss from './sub_components/SolidBackgroundCss';
-import LinearGardientCss  from './sub_components/LinearGardientCss';
-import RadialGardientCss  from './sub_components/RadialGardientCss';
 import {connect} from 'react-redux';
 
 
 class CssCode extends Component {
 
-  cssClass= () =>{
-    console.log('hellocss')
-   }
-
-   //this method is used to return the proper component for the type chosen 
+  //this method is used to return the proper component for the type chosen 
    //this is not a lazy loading :p
    getCssByTypeChosen = () => {
       let typeChosen = this.props.typeChosen;
@@ -34,7 +27,7 @@ class CssCode extends Component {
                 <p style={{marginBottom: 0}}>mix-blend-mode: {this.props.mode};</p>
               </div>
         case 'linearGradient':
-                return <div>
+              return <div>
                 <p style={{marginBottom: 0}}>content: "";</p>
                 <p style={{marginBottom: 0}}>display: block;</p>
                 <p style={{marginBottom: 0}}>height: 100%;</p>
@@ -49,7 +42,7 @@ class CssCode extends Component {
                 <p style={{marginBottom: 0}}>background: linear-gradient({this.props.gradientdirection}, {this.props.backgroundColor1} {this.props.IncrementColor1}%, {this.props.backgroundColor2} {this.props.IncrementColor2}%);</p>
               </div>
         case 'radialGradient':
-                return <div>
+              return <div>
                 <p style={{marginBottom: 0}}>content: "";</p>
                 <p style={{marginBottom: 0}}>display: block;</p>
                 <p style={{marginBottom: 0}}>height: 100%;</p>
