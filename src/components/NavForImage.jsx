@@ -1,63 +1,61 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {uploadNewImage} from  '../actions/previewAction';
+import {uploadNewImage , showCssBlock} from  '../actions/previewAction';
+import ReactFileReader from 'react-file-reader';
 
 
 class NavForImage extends Component {
   
-    loadFile = (event)=>{
-        //got this code from stackoverflow 
-      
-      var reader = new FileReader();
-     
-        let output ;
-        reader.onload = function(){
-            output =reader.result;
-            //output.src = reader.result;
-          };
-          this.props.uploadNewImage(output);
-        reader.readAsDataURL(event.target.files[0]);
-          
-        console.log("reader is : ",output)
+    loadFile = (files)=>{
+         this.props.uploadNewImage(files.base64);
     }
 
-  
+    showCssBlock = () =>{
+        
+        (this.props.showCss) ? this.props.showCssBlock(false) :this.props.showCssBlock(true);
+    }
 
-  render() {
-    return (
-      <nav className="level">
-        <div className="level-left">
-          <div className="level-item">
-            <p className="level-item">
-            <div className="field">
-              <div className="file is-info">
-                <label className="file-label">
-                  <input className="file-input" type="file" accept="image/*" onChange={this.loadFile.bind(this)}/>
-                  <span className="file-cta">
-                    <span className="file-icon">
-                      <i className="fas fa-upload"></i>
+    render() {
+      return (
+        <nav className="level">
+          <div className="level-left">
+            <div className="level-item">
+              <p className="level-item">
+              <div className="field">
+                <div className="file is-info">
+                <ReactFileReader handleFiles={this.loadFile} base64={true}>
+                  <label className="file-label">
+                     <span className="file-cta">
+                      <span className="file-icon">
+                        <i className="fas fa-upload"></i>
+                      </span>
+                      <span className="file-label">
+                          Upload Image
+                      </span>
                     </span>
-                    <span className="file-label">
-                        Upload Image
-                    </span>
-                  </span>
-                </label>
+                  </label>
+                  </ReactFileReader>
+                </div>
               </div>
+              </p>
             </div>
-            </p>
           </div>
+        <div className="level-right">
+          <p className="level-item">
+            <a className="button is-warning" onClick={this.showCssBlock}>Show Css</a>
+          </p>
         </div>
-      <div className="level-right">
-        <p className="level-item">
-          <a className="is-success">Show Css</a>
-        </p>
-      </div>
-    </nav>
-    )
+      </nav>
+      )
   }
 }
-
+const mapStateToProps = state =>({
+  showCss : state.PreviewReducer.showCss
+})
 export default connect(
-  null,
-  {uploadNewImage})
+  mapStateToProps,
+  {
+    uploadNewImage,
+    showCssBlock
+  })
   (NavForImage)

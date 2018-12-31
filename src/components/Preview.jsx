@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import atx from './atx.jpg';
+import atx from '../images/atx.jpg';
 import {connect} from 'react-redux';
 import NAVForImage from './NavForImage';
 
@@ -184,7 +184,7 @@ class Preview extends Component {
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
                 <FigureNone>
-                    <img id="output" src={atx} />
+                    <img id="output" src={this.props.src} />
                 </FigureNone>
             </PREVIEW>
         )
@@ -195,7 +195,7 @@ class Preview extends Component {
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
                 <FigureSolidBackground>
-                    <img src={atx} />
+                    <img src={this.props.src} />
                 </FigureSolidBackground>
             </PREVIEW>
         )
@@ -205,7 +205,7 @@ class Preview extends Component {
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
                 <FigurelinearGradient >
-                    <img src={atx} />
+                    <img src={this.props.src} />
                 </FigurelinearGradient>
             </PREVIEW>
         )
@@ -215,7 +215,7 @@ class Preview extends Component {
                 <NAVForImage/>
                 <hr style={{background: '#eee'}} />
                 <FigureradialGradient> 
-                    <img src={atx} />
+                    <img src={this.props.src} />
                 </FigureradialGradient>
             </PREVIEW>
         )
@@ -249,7 +249,9 @@ const mapStateToProps = state => ({
   IncrementColor2: state.Filter.IncrementColor2,
   gradientdirection: state.Filter.gradientdirection,
   gradientPosition : state.Filter.gradientPosition,
-  gradientSize : state.Filter.gradientSize
+  gradientSize : state.Filter.gradientSize,
+  src :         state.PreviewReducer.src,
+  showCss :         state.PreviewReducer.showCss
 })
 
 export default connect(

@@ -207,7 +207,9 @@ const mapStateToProps = state => ({
   gradientPosition : state.Filter.gradientPosition,
   gradientSize : state.Filter.gradientSize,
   filtersChanged : state.Filter.filtersChanged,
-  overlayChanged : state.Filter.overlayChanged
+  overlayChanged : state.Filter.overlayChanged,
+
+  
 })
 
 export default connect( mapStateToProps, { })  (CssCode);

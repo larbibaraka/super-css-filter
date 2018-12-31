@@ -11,3 +11,12 @@ export function uploadNewImage (value){
     payload : value
   })
 }
+
+export function showCssBlock (value){
+  return ({
+    type : SHOW_CSS,
+    payload : value
+  })
+}
+
+

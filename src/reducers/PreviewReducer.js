@@ -4,10 +4,10 @@ import
   SHOW_CSS
 }
 from '../constants/types';
-
+import atx from '../images/atx.jpg';
 
 const initialState = {
-  src : 'atx.png',
+  src : atx,
   showCss : true
 }
 
