@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import SolidBackgroundCss from './sub_components/SolidBackgroundCss';
+import LinearGardientCss  from './sub_components/LinearGardientCss';
+import RadialGardientCss  from './sub_components/RadialGardientCss';
 import {connect} from 'react-redux';
 
 
@@ -7,6 +10,62 @@ class CssCode extends Component {
 
   cssClass= () =>{
     console.log('hellocss')
+   }
+
+   //this method is used to return the proper component for the type chosen 
+   //this is not a lazy loading :p
+   getCssByTypeChosen = () => {
+      let typeChosen = this.props.typeChosen;
+      switch (typeChosen) {
+        case 'none':
+          return null;
+        case 'solidBackground':
+             return <div>
+                <p style={{marginBottom: 0}}>content: "";</p>
+                <p style={{marginBottom: 0}}>display: block;</p>
+                <p style={{marginBottom: 0}}>height: 100%;</p>
+                <p style={{marginBottom: 0}}>width: 100%;</p>
+                <p style={{marginBottom: 0}}>top: 0;</p>
+                <p style={{marginBottom: 0}}>left: 0;</p>
+                <p style={{marginBottom: 0}}>position: absolute;</p>
+                <p style={{marginBottom: 0}}>pointer-events: none;</p>
+                <p style={{marginBottom: 0}}>opacity: {this.props.opacity};</p>
+                <p style={{marginBottom: 0}}>background: {this.props.backgroundColor1};</p>
+                <p style={{marginBottom: 0}}>mix-blend-mode: {this.props.mode};</p>
+              </div>
+        case 'linearGradient':
+                return <div>
+                <p style={{marginBottom: 0}}>content: "";</p>
+                <p style={{marginBottom: 0}}>display: block;</p>
+                <p style={{marginBottom: 0}}>height: 100%;</p>
+                <p style={{marginBottom: 0}}>width: 100%;</p>
+                <p style={{marginBottom: 0}}>top: 0;</p>
+                <p style={{marginBottom: 0}}>left: 0;</p>
+                <p style={{marginBottom: 0}}>position: absolute;</p>
+                <p style={{marginBottom: 0}}>pointer-events: none;</p>
+                <p style={{marginBottom: 0}}>opacity: {this.props.opacity};</p>
+                <p style={{marginBottom: 0}}>mix-blend-mode: {this.props.mode};</p>
+                <p style={{marginBottom: 0}}>background: -webkit-linear-gradient({this.props.gradientdirection}, {this.props.backgroundColor1} {this.props.IncrementColor1}%, {this.props.backgroundColor2} {this.props.IncrementColor2}%);</p>
+                <p style={{marginBottom: 0}}>background: linear-gradient({this.props.gradientdirection}, {this.props.backgroundColor1} {this.props.IncrementColor1}%, {this.props.backgroundColor2} {this.props.IncrementColor2}%);</p>
+              </div>
+        case 'radialGradient':
+                return <div>
+                <p style={{marginBottom: 0}}>content: "";</p>
+                <p style={{marginBottom: 0}}>display: block;</p>
+                <p style={{marginBottom: 0}}>height: 100%;</p>
+                <p style={{marginBottom: 0}}>width: 100%;</p>
+                <p style={{marginBottom: 0}}>top: 0;</p>
+                <p style={{marginBottom: 0}}>left: 0;</p>
+                <p style={{marginBottom: 0}}>position: absolute;</p>
+                <p style={{marginBottom: 0}}>pointer-events: none;</p>
+                <p style={{marginBottom: 0}}>opacity: {this.props.opacity};</p>
+                <p style={{marginBottom: 0}}>mix-blend-mode: {this.props.mode};</p>
+                <p style={{marginBottom: 0}}>background: -webkit-radial-gradient({this.props.gradientPosition}, circle {this.props.gradientSize}, {this.props.backgroundColor1} {this.props.IncrementColor1}%, {this.props.backgroundColor2} {this.props.IncrementColor2}%);</p>
+                <p style={{marginBottom: 0}}>background: radial-gradient({this.props.gradientPosition}, circle {this.props.gradientSize}, {this.props.backgroundColor1} {this.props.IncrementColor1}%, {this.props.backgroundColor2} {this.props.IncrementColor2}%);</p>
+              </div>
+        default:
+          return null;
+      }
    }
 
   
@@ -31,7 +90,7 @@ class CssCode extends Component {
                 border-left-color: #009688!important;
            `;
 
-  
+    console.log(this.props.typeChosen)
     return (
       <CSSCODE >
           <div className="box">
@@ -77,12 +136,8 @@ class CssCode extends Component {
                     null
                     }
                     {
-                    
-                      "}"
-                      
-                    
-                   }
-
+                      "}"   
+                    }
                     {
                      (this.props.overlayChanged) ? 
                       <br/>
@@ -103,18 +158,7 @@ class CssCode extends Component {
                     }
                    {
                     (this.props.overlayChanged) ? 
-                    <div>
-                     <p style={{marginBottom: 0}}>content: "";</p>
-                     <p style={{marginBottom: 0}}>display: block;</p>
-                     <p style={{marginBottom: 0}}>height: 100%;</p>
-                     <p style={{marginBottom: 0}}>width: 100%;</p>
-                     <p style={{marginBottom: 0}}>top: 0;</p>
-                     <p style={{marginBottom: 0}}>left: 0;</p>
-                     <p style={{marginBottom: 0}}>position: absolute;</p>
-                     <p style={{marginBottom: 0}}>pointer-events: none;</p>
-                     <p style={{marginBottom: 0}}>opacity: 0.5;</p>
-                     <p style={{marginBottom: 0}}>background: rgba(62, 162, 253, 0.5);</p>
-                    </div>
+                    this.getCssByTypeChosen()
                     :
                     null
                    }
