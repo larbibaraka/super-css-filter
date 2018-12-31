@@ -84,7 +84,8 @@ class CssCode extends Component {
            `;
 
     console.log(this.props.typeChosen)
-    return (
+    if(this.props.showCss){
+      return (
       <CSSCODE >
           <div className="box">
             <div className="content">     
@@ -185,6 +186,10 @@ class CssCode extends Component {
           </div>      
        </CSSCODE> 
     )
+    }
+    else{
+      return null;
+    }
   }
 }
 const mapStateToProps = state => ({
@@ -208,7 +213,7 @@ const mapStateToProps = state => ({
   gradientSize : state.Filter.gradientSize,
   filtersChanged : state.Filter.filtersChanged,
   overlayChanged : state.Filter.overlayChanged,
-
+  showCss :         state.PreviewReducer.showCss
   
 })
 
